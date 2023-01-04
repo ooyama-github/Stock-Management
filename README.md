@@ -1,24 +1,24 @@
-# README
+# <stocker>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+洋服や商品の在庫管理をするアプリ
 
-Things you may want to cover:
+### テーマを選んだ理由
+もともと洋服が好きで、持っている洋服の数が多かったので、フリマアプリで売るために紙で在庫管理をしていました。在庫管理ができるサービスがあれば便利だと考え、このテーマにしました。
 
-* Ruby version
+### ターゲットユーザ
+在庫管理を楽にしたい人
 
-* System dependencies
+### 主な利用シーン
+服の在庫管理、物の在庫管理、食材の在庫管理など
 
-* Configuration
+## 設計書
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
