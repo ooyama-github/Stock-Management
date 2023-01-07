@@ -1,4 +1,4 @@
-# <stocker>
+# Stock Management
 
 ## サイト概要
 ### サイトテーマ
