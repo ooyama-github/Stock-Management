@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   
 # 管理者用
   # URL /admin/sign_in ...
-  # devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  # sessions: "admin/sessions"
-# }
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
 
   # 顧客用
   # URL /customers/sign_in ...
@@ -25,16 +25,14 @@ Rails.application.routes.draw do
     get 'unsubscribe' => 'customers#unsubscribe', as: 'customers_unsubscribe'
     patch 'customers/information' => 'customers#update', as: 'customers_update'
     patch 'withdraw' => 'customers#withdraw', as: 'customers_withdraw'
-  end
   
   
   #会員側
-  resources :items, only: [:index, :show]
-
-  namespace :admin do
-  resources :genres, only: [:index,:create,:edit,:update]
-  resources:customers, only: [:index, :show, :edit, :update]
+  resources :items, only: [:new, :index, :show, :edit, :create, :destroy]
+  
   end
+  
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
