@@ -10,7 +10,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <!--ヘッダー呼び出し-->
   <body>
+    <%= render "layouts/header" %>
     <%= yield %>
   </body>
+
+  <!--フッター呼び出し-->
+  <%= render "layouts/footer" %>
 </html>
