@@ -19,15 +19,19 @@
             </tr>
             <tr>
               <td>売却金額</td>
-              <td><%= f.text_fie円</td>
+              <td><%= f.text_field :Sale_amount %>円</td>
             </tr>
             <tr>
               <td>購入日時</td>
-              <td></td>
+              <td><%= f.text_field :Date_of_purchase %></td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
+              <td>ジャンル</td>
+              <td><%#= f.collection_select :genre_id %></td>
+            </tr>
+            <tr>
+              <td>メモ</td>
+              <td><%#= f.text_field :memo %></td>
             </tr>
           </tbody>
         </table>

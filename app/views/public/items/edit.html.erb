@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row-lg-10">
+    <h2>商品編集画面</h2>
+    <div class="col-10 offset-md-1">
+      <%= form_with model: @item,url: items_path do |f| %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td>商品画像</td>
+              <td><%= f.file_field :image %></td>
+            </tr>
+            <tr>
+              <td>商品名</td>
+              <td><%= f.text_field :name %></td>
+            </tr>
+            <tr>
+              <td>購入金額</td>
+              <td><%= f.text_field :Purchase_amount %>円</td>
+            </tr>
+            <tr>
+              <td>売却金額</td>
+              <td><%= f.text_field :Sale_amount %>円</td>
+            </tr>
+            <tr>
+              <td>購入日時</td>
+              <td><%= f.text_field :Date_of_purchase %></td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="col text-center">
+        <%= f.submit "　　編集ボタン　　",class:"btn btn-success center-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
