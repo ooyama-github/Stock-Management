@@ -1,19 +1,14 @@
 <h1>在庫一覧</h1>
 
-<h1>
-  <%= link_to new_item_path do%>
-    <i class="fas fa-plus-circle"></i>
-  <% end %>
-</h1>
-<h1>
-  <%= link_to "ジャンル追加",genres_path,class:"btn btn-success center-block" %>
-</h1>
+<h1><%= link_to "商品追加", new_item_path, class:"btn btn-success center-block" %></h1>
+<h1><%= link_to "ジャンル追加",genres_path,class:"btn btn-success center-block" %></h1>
 
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
       <th></th>
       <th>購入日時</th>
+      
       <th>商品名</th>
       <th>購入金額</th>
       <th>売却金額</th>

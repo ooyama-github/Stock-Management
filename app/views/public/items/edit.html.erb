@@ -26,13 +26,17 @@
               <td><%= f.text_field :Date_of_purchase %></td>
             </tr>
             <tr>
+              <td>ジャンル</td>
+              <td><%#= f.select :faculty, , include_blank: "選択して下さい" %></td>
+            </tr>
+            <tr>
               <td>メモ</td>
               <td><%= f.text_field :memo %></td>
             </tr>
           </tbody>
         </table>
         <div class="col text-center">
-        <%= f.submit "　　編集ボタン　　",class:"btn btn-success center-block" %>
+        <%= f.submit "　　上書き保存　　",class:"btn btn-success center-block" %>
         </div>
       <% end %>
     </div>
