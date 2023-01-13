@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   
   #会員側
   resources :items, only: [:new, :index, :show, :edit, :create, :destroy]
+  resources :genres, only: [:index,:create,:edit,:update]
   
   end
   

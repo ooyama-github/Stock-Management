@@ -27,11 +27,12 @@
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td><%#= f.collection_select :genre_id %></td>
+              <td><%= f.number_field :genre_id, in: 1..100 %></td>
+              <%#= f.text_field :genre_id %>
             </tr>
             <tr>
               <td>メモ</td>
-              <td><%#= f.text_field :memo %></td>
+              <td><%= f.text_field :memo %></td>
             </tr>
           </tbody>
         </table>
