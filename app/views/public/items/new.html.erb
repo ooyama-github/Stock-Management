@@ -27,8 +27,7 @@
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td><%= f.number_field :genre_id, in: 1..100 %></td>
-              <%#= f.text_field :genre_id %>
+              <td><%= f.select :genre_id, options_from_collection_for_select( Genre.all, :id, :name),include_blank: "選択して下さい" %></td>
             </tr>
             <tr>
               <td>メモ</td>

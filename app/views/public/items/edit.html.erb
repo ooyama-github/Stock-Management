@@ -1,13 +1,26 @@
 <div class="container">
-  <div class="row-lg-10">
+  <div class="row">
     <h2>商品編集画面</h2>
-    <div class="col-10 offset-md-1">
-      <%= form_with model: @item,url: items_path do |f| %>
+  </div>
+  <div class="row">
+    <div class=col-3>
+
+
+      <% if @item.image.attached? %>
+        <span><%= image_tag @item.image, size: "250x250", id: 'preview' %></span>
+      <% else %>
+        <span><%= image_tag 'noimage.png',size: "250x250", id: 'preview' %></span>
+      <% end %>
+    </div>
+
+
+    <div class="col-6 offset-md-1">
+      <%= form_with model: @item,url: item_path(@item.id), method: :patch do |f| %>
         <table class="table table-borderless">
           <tbody>
             <tr>
               <td>商品画像</td>
-              <td><%= f.file_field :image %></td>
+              <td><%= f.file_field :image, onchange: 'previewImage(this);' %></td>
             </tr>
             <tr>
               <td>商品名</td>
@@ -27,7 +40,7 @@
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td><%#= f.select :faculty, , include_blank: "選択して下さい" %></td>
+              <td><%= f.select :genre_id, options_from_collection_for_select( Genre.all, :id, :name) %></td>
             </tr>
             <tr>
               <td>メモ</td>
@@ -42,3 +55,56 @@
     </div>
   </div>
 </div>
+
+<!--画像を変えた時のJavascriptの記述-->
+<script>
+function previewImage(obj) {
+  const fileReader = new FileReader
+  fileReader.onload = (function() {
+    document.getElementById('preview').src = fileReader.result;
+  });
+  fileReader.readAsDataURL(obj.files[0]);
+}
+</script>
+
+
+<!--javascriptの記述（ボツ）-->
+<!--window.addEventListener('load', () => {-->
+<!--const imgPreview = document.querySelector('#imgPreview');-->
+<!--if (imgPreview) {-->
+<!--const uploader = document.querySelector('.uploader');-->
+<!--uploader.addEventListener('change', (e) => {-->
+<!--let file = uploader.files[0];-->
+<!--let reader = new FileReader();-->
+<!--reader.readAsDataURL(file);-->
+<!--reader.onload = () => {-->
+<!--imgPreview.src = reader.result;-->
+<!--}-->
+<!--});-->
+<!--}-->
+<!--});-->
+
+<!--コードの解説-->
+<!--画面が読み込まれたら実行-->
+<!--window.addEventListener('load', () => {-->
+<!--　画像表示部分のHTML要素を取得して代入-->
+<!--  const imgPreview = document.querySelector('#imgPreview');-->
+<!--　取得できていたら-->
+<!--  if (imgPreview) {-->
+<!--　　アップロード部分のHTML要素を取得して代入-->
+<!--    const uploader = document.querySelector('.uploader');-->
+<!--　　ファイルが変更されたら実行-->
+<!--    uploader.addEventListener('change', (e) => {-->
+<!--　　　 選択されたファイルを取得して代入-->
+<!--      let file = uploader.files[0];-->
+<!--　　　 ファイル読み込み機能を使うため、インスタンスを作成-->
+<!--      let reader = new FileReader();-->
+<!--　　　　選択されたファイルをURLとして取得-->
+<!--      reader.readAsDataURL(file);-->
+<!--　　　　取得でき次第、画像表示部分のHTML要素のsrcオプションに結果を代入-->
+<!--      reader.onload = () => {-->
+<!--        imgPreview.src = reader.result;-->
+<!--      }-->
+<!--    });-->
+<!--  }-->
+<!--});-->

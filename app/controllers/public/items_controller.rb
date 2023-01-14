@@ -4,35 +4,56 @@ class Public::ItemsController < ApplicationController
   def new
     @item = Item.new
   end
+  
+  def show
+    @item = Item.find(params[:id])
+  end
 
   def edit
     @item = Item.find(params[:id])
   end
+  
+  def index
+    @items = Item.all
+    # ページネーションを適用させる
+    @items = Item.page(params[:page])
+  end
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to items_path
-  end
-
-  def index
-    @items = Item.all
-  end
-
-  def show
-    @item = Item.find(params[:id])
+    # フラッシュメッセージを
+    if @item.save
+      flash[:notice] = "商品の新規登録に成功しました!"
+      # 一覧ページに移動
+      redirect_to items_path
+    #うまく登録できなかった場合は新規登録画面に移動
+    else
+      render :new
+    end
   end
   
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to items_path(item.id)
+    # フラッシュメッセージを設定
+    if @item.update(item_params)
+      flash[:notice] = "商品は編集されました！"
+      redirect_to items_path(@item.id)
+    else
+      render :edit
+    end
   end
+  
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
+  end
+
 
   # ストロングパラメータ
   private
     def item_params
-      params.require(:item).permit(:image, :name, :Purchase_amount, :Sale_amount, :Date_of_purchase, :genre_id, :memo, :quantity)
+      params.require(:item).permit(:image, :name, :Purchase_amount, :Sale_amount, :Date_of_purchase, :genre_id, :memo)
     end
 
 end

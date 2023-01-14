@@ -1,18 +1,21 @@
-<h1>マイページ</h1>
-
-<table class="table table-bordered">
-  <tbody>
-    <tr></tr>
-    <tr>
-      <td class="table-secondary">氏名</td>
-      <td><%= @customer.name %></td>
-    </tr>
-
-    <tr>
-      <td class="table-secondary">メールアドレス</td>
-      <td><%= @customer.email %></td>
-    </tr>
-  </tbody>
-</table>
-
-<%= link_to "編集する", customers_edit_path, class:"btn btn-primary" %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <h1>マイページ</h1>
+      <p class="font-weight-bold h4">登録情報　<%= link_to "編集する", customers_edit_path, class:"btn btn-success" %></p>
+      <table class="table table-bordered">
+        <tbody>
+          <tr></tr>
+          <tr>
+            <td class="table-secondary">氏名</td>
+            <td><%= @customer.name %></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div

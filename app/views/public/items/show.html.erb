@@ -1,42 +1,52 @@
 <div class="container">
-  <div class="row-lg-10">
+  <div class="row">
     <h2>商品詳細</h2>
-    <div class="col-10 offset-md-1">
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <td>購入日時</td>
-              <td><%= @item.Date_of_purchase %></td>
-            </tr>
-            <tr>
-              <td>商品名</td>
-              <td><%= @item.name %></td>
-            </tr>
-            <tr>
-              <td>購入金額</td>
-              <td><%= @item.Purchase_amount %></td>
-            </tr>
-            <tr>
-              <td>売却金額</td>
-              <td><%= @item.Sale_amount %></td>
-            </tr>
-            <tr>
-              <td>利益</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>ジャンル</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>メモ</td>
-              <td><%= @item.memo %></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="form-group">
-          <%= link_to '編集する', edit_item_path, class: "btn btn-success" %>
-        </div>
+  </div>
+  <div class="row">
+    <div class=col-3>
+      <% if @item.image.attached? %>
+        <span><%= image_tag @item.image, size: "250x250" %></span>
+      <% else %>
+        <span><%= image_tag 'noimage.png',size: "250x250" %></span>
+      <% end %>
+    </div>
+    <div class="col-6 offset-md-1">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>購入日時</td>
+            <td><%= @item.Date_of_purchase %></td>
+          </tr>
+          <tr>
+            <td>商品名</td>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <td>購入金額</td>
+            <td><%= @item.Purchase_amount %>円</td>
+          </tr>
+          <tr>
+            <td>売却金額</td>
+            <td><%= @item.Sale_amount %>円</td>
+          </tr>
+          <tr>
+            <td>利益</td>
+            <td><%= @item.Sale_amount - @item.Purchase_amount %>円</td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td><%= @item.genre.name %></td>
+          </tr>
+          <tr>
+            <td>メモ</td>
+            <td><%= @item.memo %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
+<div class="col text-center">
+  <%= link_to '編集する', edit_item_path(@item.id), class: "btn btn-success" %>
+  <%= link_to '削除する', item_path(@item.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
 </div>

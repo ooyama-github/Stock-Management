@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-10">
-      <h2>　　会員情報編集</h2>
+      <h2>　会員情報編集</h2>
       <%= form_with model: @customer, url: customers_update_path, method: :PATCH do |f| %>
+      <%= render "public/shared/error_messages", resource: @customer %>
         <table class="table table-borderless">
           <tbody>
             <tr>
