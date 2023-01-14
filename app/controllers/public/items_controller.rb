@@ -4,7 +4,7 @@ class Public::ItemsController < ApplicationController
   def new
     @item = Item.new
   end
-  
+
   def show
     @item = Item.find(params[:id])
   end
@@ -12,11 +12,29 @@ class Public::ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
-  
+
   def index
-    @items = Item.all
     # ページネーションを適用させる
     @items = Item.page(params[:page])
+    @items = Item.all
+    # ジャンル検索のための記述
+    @genres = Genre.all
+    if params[:genre_id]
+      @genre = Genre.find(params[:genre_id])
+      @items = @genre.items
+    elsif @search_items
+      @items = @search_items.page(params[:page])
+      @items_count = @search_items.all.count
+    end
+      
+
+    # 一覧表示する商品の数を表示
+    # @count = 0
+    # @items.each do |item|
+    #   if item.is_active == true
+    #     @count = @count + 1
+    #   end
+    # end
   end
 
   def create
@@ -31,7 +49,7 @@ class Public::ItemsController < ApplicationController
       render :new
     end
   end
-  
+
   def update
     @item = Item.find(params[:id])
     # フラッシュメッセージを設定
@@ -42,7 +60,7 @@ class Public::ItemsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @item = Item.find(params[:id])
     @item.destroy

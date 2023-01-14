@@ -3,12 +3,16 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-2">
+      <!--ジャンル検索部分テンプレート呼び出し-->
+      <%= render 'genrevar', genres: @genres %>
+    </div>
+    
+    
     <div class="col-10">
-      <h1>在庫一覧</h1>
-
+      <h1 style="margin: 20px 0;">在庫一覧(全<%= @count %>件)</h1>
       <h1><%= link_to "商品追加", new_item_path, class:"btn btn-success center-block" %></h1>
       <h1><%= link_to "ジャンル追加",genres_path,class:"btn btn-info center-block" %></h1>
-
       <table class='table table-hover table-inverse'>
         <thead>
           <tr>
@@ -19,12 +23,11 @@
             <th>購入金額</th>
             <th>売却金額</th>
             <th>利益</th>
-            <th colspan="3"></th>
           </tr>
         </thead>
         <tbody>
           <% @items.each do |item| %>
-           <tr>
+            <tr>
             <td>
               <% if item.image.attached? %>
                 <%= image_tag item.image, size: "100x100" %>
@@ -42,10 +45,31 @@
             <td><%= item.Purchase_amount %>円</td>
             <td><%= item.Sale_amount %>円</td>
             <td><%= item.Sale_amount - item.Purchase_amount %>円</td>
-           </tr>
+            </tr>
           <% end %>
         </tbody>
       </table>
+      
+      
+      <!--全合計部分-->
+      <div class="col-3 offset-5">
+        <table class="table table-bordered">
+          <thead>
+            <tr style="font-size: 18px">
+              <th>購入合計</th>
+              <th>売却合計</th>
+              <th>利益合計</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

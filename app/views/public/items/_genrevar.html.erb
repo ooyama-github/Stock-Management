@@ -1,0 +1,15 @@
+<!--ジャンルバーの部分テンプレート-->
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th class="active text-center">ジャンル検索</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% genres.each do |genre| %>
+      <tr>
+        <td><%= link_to genre.name, items_path(genre_id: genre.id),class: "text-secondary" %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
