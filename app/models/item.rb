@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :genre
+  belongs_to :customer
   has_one_attached :image
 
   validates :Date_of_purchase, presence: true

@@ -9,7 +9,13 @@
     </div>
 
     <div class="col-10">
-      <h1 style="margin: 20px 0;">在庫一覧(全<%= @items.size %>件)</h1>
+      <h1 style="margin: 20px 0;">在庫一覧(全
+          <% if @items.empty? %>
+            0件)
+          <% else %>
+            <%= @items.count %>件)
+          <% end %>
+      </h1>
       <h1><%= link_to "商品追加", new_item_path, class:"btn btn-success center-block" %></h1>
       <h1><%= link_to "ジャンル追加",genres_path,class:"btn btn-info center-block" %></h1>
       <table class='table table-hover table-inverse'>
@@ -51,7 +57,8 @@
 
 
       <!--全合計部分-->
-      <div class="col-3 offset-5">
+      
+      <div class="row my-2">
         <table class="table table-bordered">
           <thead>
             <tr style="font-size: 18px">

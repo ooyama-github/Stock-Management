@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 2023_01_13_101131) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -72,14 +72,15 @@ ActiveRecord::Schema.define(version: 2023_01_13_101131) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.integer "customer_id", null: false
     t.integer "genre_id", null: false
     t.integer "Purchase_amount", null: false
     t.integer "Sale_amount", null: false
     t.string "Date_of_purchase", null: false
     t.text "memo"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

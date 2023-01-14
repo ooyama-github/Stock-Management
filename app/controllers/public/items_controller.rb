@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
 
-  before_action :authenticate_customer!, except: [:edit, :index, :new, :show]
+  before_action :authenticate_customer!
 
   def new
     @item = Item.new
@@ -16,13 +16,11 @@ class Public::ItemsController < ApplicationController
 
   def index
     # ページネーションを適用させる
-    @items = Item.page(params[:page])
-    @items = Item.all
+    @items = Item.where(customer_id: current_customer.id).page(params[:page])
     # ジャンル検索のための記述
     @genres = Genre.all
     if params[:genre_id]
-      @genre = Genre.find(params[:genre_id])
-      @items = @genre.items
+      @items = @items.where(genre_id: params[:genre_id])
     elsif @search_items
       @items = @search_items.page(params[:page])
       @items_count = @search_items.all.count
@@ -31,6 +29,7 @@ class Public::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.customer_id = current_customer.id
     # フラッシュメッセージを
     if @item.save
       flash[:notice] = "商品の新規登録に成功しました!"
