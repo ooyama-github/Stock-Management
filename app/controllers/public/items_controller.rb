@@ -1,5 +1,6 @@
 class Public::ItemsController < ApplicationController
 
+  before_action :authenticate_customer!, except: [:edit, :index, :new, :show]
 
   def new
     @item = Item.new
@@ -26,15 +27,6 @@ class Public::ItemsController < ApplicationController
       @items = @search_items.page(params[:page])
       @items_count = @search_items.all.count
     end
-      
-
-    # 一覧表示する商品の数を表示
-    # @count = 0
-    # @items.each do |item|
-    #   if item.is_active == true
-    #     @count = @count + 1
-    #   end
-    # end
   end
 
   def create
