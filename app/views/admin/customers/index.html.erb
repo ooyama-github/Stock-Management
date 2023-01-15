@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-11">
+      <h2>会員一覧</h2>
+    </div>
+    <div class="col-1">
+  </div>
+</div>
+
+<div class="row-lg-10">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--顧客一覧情報表示処理-->
+      <% @admin_customers.each do |admin_customer| %>
+        <tr>
+          <th><%= admin_customer.id %></th>
+          <th><%= link_to admin_customer.name, admin_customer_path(admin_customer.id) %></th>
+          <th><%= admin_customer.email %></th>
+          <th></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+

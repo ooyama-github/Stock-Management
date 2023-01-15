@@ -4,24 +4,27 @@ Rails.application.routes.draw do
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
-}
+  }
 
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
-}
+  }
 
   # 管理者のトップページ
   get '/admin' => 'admin/homes#top'
-  
-  
+
+  # 管理者側のルーティング
+  namespace :admin do
+    resources :customers, only: [:index, :show, :edit, :update]
+  end
+
 
   #顧客のトップページ、アバウトページの遷移
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
-  
    # 顧客のマイページ、編集画面、退会画面
   scope module: :public do
     get 'customers/mypage' => 'customers#show', as: 'customers_mypage'

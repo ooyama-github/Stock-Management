@@ -6,10 +6,13 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><%= link_to "全て", items_path %></td>
+    </tr>
     <% genres.each do |genre| %>
       <tr>
         <td><%= link_to genre.name, items_path(genre_id: genre.id),class: "text-secondary" %></td>
       </tr>
-    <% end %> 
+    <% end %>
   </tbody>
 </table>

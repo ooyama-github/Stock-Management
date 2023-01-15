@@ -1,0 +1,23 @@
+<%= @admin_customer.name %>さんの会員詳細
+
+<table>
+  <tr>
+    <th>会員ID</th>
+    <th><%= @admin_customer.id %></th>
+  </tr>
+  <tr>
+    <th>氏名</th>
+    <th><%= @admin_customer.name %></th>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <th><%= @admin_customer.email %></th>
+  </tr>
+  <tr>
+    <th>会員ステータス</th>
+    <th></th>
+  </tr>
+</table>
+
+
+<%= link_to '編集する', edit_admin_customer_path, class: "btn btn-success" %>
