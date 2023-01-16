@@ -1,23 +1,40 @@
-<%= @admin_customer.name %>さんの会員詳細
+<%= notice %>
 
-<table>
-  <tr>
-    <th>会員ID</th>
-    <th><%= @admin_customer.id %></th>
-  </tr>
-  <tr>
-    <th>氏名</th>
-    <th><%= @admin_customer.name %></th>
-  </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <th><%= @admin_customer.email %></th>
-  </tr>
-  <tr>
-    <th>会員ステータス</th>
-    <th></th>
-  </tr>
-</table>
+<div class="container">
+  <div class="row-lg-10">
+    <div class="col-11 offset-md-1">
+      <div class="bg-light text-center">
+        <%= @admin_customer.name %>さんの会員詳細
+      </div>
+    </div>
 
-
-<%= link_to '編集する', edit_admin_customer_path, class: "btn btn-success" %>
+    <table class="table">
+      <div class="row-lg-11">
+        <tbody>
+          <tr>
+            <th>会員ID</th>
+            <th><%= @admin_customer.id %></th>
+          </tr>
+          <tr>
+            <th>氏名</th>
+            <th><%= @admin_customer.name %></th>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <th><%= @admin_customer.email %></th>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <th>
+              <% @admin_customer.is_deleted %>
+              <% if @admin_customer.is_deleted == false %><div class="text-success">有効</div>
+              <% elsif @admin_customer.is_deleted == true %>退会
+              <% end %>
+            </th>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+    <%= link_to '編集する', edit_admin_customer_path, class: "btn btn-success" %>
+  </div>
+</div>
