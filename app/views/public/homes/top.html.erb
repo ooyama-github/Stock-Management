@@ -1,21 +1,37 @@
-<div class="col-md-9">
- <div class = "main-visual">
-  <div class = "main-visual-content">
-   <div class="jumbotron"  style= "background-size:cover;">
-    <p class="lead">ようこそStock Managementへ！</p>
-    <!--顧客がサインインした場合-->
-    <% if customer_signed_in? %>
-     <p>さっそく収支管理を始めてみよう！</p>
-     
-     
-    <!--＜サインインしていない場合＞-->
-    <% else %>
-     <p>このアプリは収支管理アプリです</p>
-     <p>このアプリを使うには会員登録が必要です。</p>
-     <div>さあ、始めましょう！</div>
-     <div>※登録は１分で完了します</div>
-    <% end %>
+<div class="container">
+ <div class="col-10 mx-auto">
+  <div class = "main-visual">
+   <div class = "main-visual-content">
+    <div class="jumbotron"  style= "background-size:cover;">
+     <p class="lead">ようこそStock Managementへ！</p>
+     <!--顧客がサインインした場合-->
+     <% if customer_signed_in? %>
+      <p>さっそく収支管理を始めてみよう！</p>
+      
+      
+     <!--＜サインインしていない場合＞-->
+     <% else %>
+      <p>このアプリは収支管理アプリです</p>
+      <p>このアプリを使うには会員登録が必要です。</p>
+      <div>さあ、始めましょう！</div>
+      <div>※登録は１分で完了します</div>
+     <% end %>
+    </div>
    </div>
   </div>
  </div>
+
+
+ <div class="btn-wrapper col-10 mx-auto">
+  <div class="row">
+   <%= link_to "ゲストログイン(閲覧用)",class: "btn btn-secondary btn-sm btn-block mb-3 sign_in" %>
+  </div>
+  <div class="row">
+   <%= link_to "ログイン", new_customer_session_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in" %>
+  </div>
+  <div class="row">
+   <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-info btn-sm btn-block  sign_up" %>
+  </div>
+ </div>
 </div>
+ 
