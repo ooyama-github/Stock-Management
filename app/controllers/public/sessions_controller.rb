@@ -2,6 +2,14 @@
 
 class Public::SessionsController < Devise::SessionsController
   before_action :reject_customer, only: [:create]
+  
+  # ゲストログイン用の記述
+  def guest_sign_in
+    customer = Customer.guest
+    sign_in customer
+    redirect_to root_path, notice: 'ゲストユーザーでログインしました。'
+  end
+
 
   protected
   # 退会しているか判断するメソッド
@@ -17,13 +25,7 @@ class Public::SessionsController < Devise::SessionsController
       redirect_to new_customer_registration_path
     end
   end
-
-  # ゲストログイン用の記述
-  def guest_sign_in
-    customer = Customer.guest
-    sign_in customer
-    redirect_to customer_path(customer), notice: 'ゲストユーザーでログインしました。'
-  end
+  
 
 
   # GET /resource/sign_in

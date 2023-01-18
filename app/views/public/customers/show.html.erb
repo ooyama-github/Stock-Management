@@ -1,8 +1,16 @@
+<!--フラッシュメッセージ-->
+<div><%= flash[:notice] %></div>
+
+
 <div class="container">
   <div class="row">
     <div class="col-10">
       <h1>マイページ</h1>
-      <p class="font-weight-bold h4">登録情報　<%= link_to "編集する", customers_edit_path, class:"btn btn-success" %></p>
+      <!--ゲストユーザーがプロフィール編集画面に行けないようにする記述-->
+      <% if @customer.name != "guestuser" %>
+        <p class="font-weight-bold h4">登録情報　<%= link_to "編集する", customers_edit_path, class:"btn btn-success" %></p>
+      <% end %>
+
       <table class="table table-bordered">
         <tbody>
           <tr></tr>
@@ -20,9 +28,4 @@
   </div>
 </div>
 
-<!--ゲストユーザーがプロフィール編集画面に行けないようにする記述-->
-<%# if customer.name != "guestruser" %>
-<!--<div class="row">-->
-  <%#= link_to '',customers_edit_path(customer),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{customer.id}" %>
-<!--</div>-->
-<!--<%# end %>-->
+

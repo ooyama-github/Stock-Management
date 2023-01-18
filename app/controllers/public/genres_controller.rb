@@ -1,14 +1,15 @@
 class Public::GenresController < ApplicationController
   before_action :authenticate_customer!
-  
+
   def index
-    @genres = Genre.page(params[:page])
+    @genres = Genre.where(customer_id: current_customer.id).page(params[:page])
     @genre = Genre.new
   end
 
   def create
     @genre = Genre.new(genre_params)
-    @genre.save
+    @genre.customer_id = current_customer.id
+    @genre.save!
     redirect_to genres_path
   end
 

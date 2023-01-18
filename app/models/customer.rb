@@ -1,11 +1,12 @@
 class Customer < ApplicationRecord
   has_many :items, dependent: :destroy
-  
+  has_many :genres, dependent: :destroy
+
    # ゲストログイン用の記述
    def self.guest
-     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |customer|
+     find_or_create_by!(name: 'ゲストユーザー' ,email: 'guestuser@example.com') do |customer|
        customer.password = SecureRandom.urlsafe_base64
-       customer.name = "guestuser"
+       customer.name = "ゲストユーザー"
      end
    end
 

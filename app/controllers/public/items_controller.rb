@@ -18,7 +18,7 @@ class Public::ItemsController < ApplicationController
     # ページネーションを適用させる
     @items = Item.where(customer_id: current_customer.id).page(params[:page])
     # ジャンル検索のための記述
-    @genres = Genre.page(params[:page])
+    @genres = Genre.where(customer_id: current_customer.id).page(params[:page])
     if params[:genre_id]
       @items = @items.where(genre_id: params[:genre_id])
     elsif @search_items

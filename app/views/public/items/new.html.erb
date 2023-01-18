@@ -1,3 +1,19 @@
+<% if @item.errors.any? %>
+
+ <p><%= @item.errors.count %>errors prohibited this obj from being saved:</p>
+
+ <ul>
+
+  <% @item.errors.full_messages.each do |message| %>
+
+   <li><%= message %></li>
+
+  <% end %>
+
+ </ul>
+
+<% end %>
+
 <div class="container">
   <div class="row">
     <h2>商品新規登録</h2>
@@ -17,8 +33,7 @@
           <tbody>
             <tr>
               <td>商品画像</td>
-              <td><%= f.file_field :image, onchange: 'previewImage(this);' %></td>
-              <%#= i.file_field :illust_image, accept: "image/jpg,image/png,image/jpeg" %>
+              <td><%= f.file_field :image, accept: "image/jpg,image/png,image/jpeg", onchange: 'previewImage(this);' %></td>
             </tr>
             <tr>
               <td>購入日時</td>
@@ -26,19 +41,19 @@
             </tr>
             <tr>
               <td>商品名</td>
-              <td><%= f.text_field :name,required: true%></td>
+              <td><%= f.text_field :name,required: true %></td>
             </tr>
             <tr>
               <td>購入金額</td>
-              <td><%= f.text_field :Purchase_amount,required: true %>円</td>
+              <td><%= f.number_field :Purchase_amount,required: true, min: 0 %>円</td>
             </tr>
             <tr>
               <td>売却金額</td>
-              <td><%= f.text_field :Sale_amount,required: true %>円</td>
+              <td><%= f.number_field :Sale_amount,required: true, min: 0 %>円</td>
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td><%= f.select :genre_id, options_from_collection_for_select( Genre.all, :id, :name),{ include_blank: "選択して下さい" }, :required => true %></td>
+              <td><%= f.select :genre_id, options_from_collection_for_select( Genre.where(customer_id: current_customer.id), :id, :name),{ include_blank: "選択して下さい" }, :required => true %></td>
             </tr>
             <tr>
               <td>メモ</td>
