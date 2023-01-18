@@ -11,11 +11,11 @@
       <tbody>
         <tr>
           <td><%= f.label :メールアドレス %></td>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com" %></td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com",required: true %></td>
         </tr>
         <tr>
           <td><%= f.label :パスワード %></td>
-          <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+          <td><%= f.password_field :password, autocomplete: "current-password",required: true %></td>
         </tr>
         <tr>
           <td></td>

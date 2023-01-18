@@ -8,19 +8,19 @@
           <tbody>
             <tr>
               <td>名前</td>
-              <td><%= f.text_field :name,:placeholder => "田中太郎",size:"20" %></td>
+              <td><%= f.text_field :name,:placeholder => "田中太郎",size:"20",required: true %></td>
             </tr>
             <tr>
               <td>メールアドレス</td>
-              <td><%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com",size:"20" %></td>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com",size:"20",required: true %></td>
             </tr>
             <tr>
               <td>パスワード(<%= @minimum_password_length %>文字以上)</td>
-              <td><%= f.password_field :password, autocomplete: "new-password",size:"20" %></td>
+              <td><%= f.password_field :password, autocomplete: "new-password",size:"20",required: true %></td>
             </tr>
             <tr>
               <td>パスワード(確認用)</td>
-              <td><%= f.password_field :password_confirmation, autocomplete: "new-password",size:"20" %></td>
+              <td><%= f.password_field :password_confirmation, autocomplete: "new-password",size:"20",required: true %></td>
             </tr>
             <tr>
               <td></td>

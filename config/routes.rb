@@ -36,5 +36,11 @@ Rails.application.routes.draw do
     resources :genres, only: [:index,:create,:edit,:update]
   end
 
+
+  # ゲストログイン用の記述
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

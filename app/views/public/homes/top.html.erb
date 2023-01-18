@@ -7,8 +7,8 @@
      <!--顧客がサインインした場合-->
      <% if customer_signed_in? %>
       <p>さっそく収支管理を始めてみよう！</p>
-      
-      
+
+
      <!--＜サインインしていない場合＞-->
      <% else %>
       <p>このアプリは収支管理アプリです</p>
@@ -24,7 +24,7 @@
 
  <div class="btn-wrapper col-10 mx-auto">
   <div class="row">
-   <%= link_to "ゲストログイン(閲覧用)",class: "btn btn-secondary btn-sm btn-block mb-3 sign_in" %>
+   <%= link_to "ゲストログイン(閲覧用)",customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
   </div>
   <div class="row">
    <%= link_to "ログイン", new_customer_session_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in" %>
@@ -34,4 +34,3 @@
   </div>
  </div>
 </div>
- 

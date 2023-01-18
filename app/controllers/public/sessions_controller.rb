@@ -17,14 +17,13 @@ class Public::SessionsController < Devise::SessionsController
       redirect_to new_customer_registration_path
     end
   end
-  
-  # ゲストログインの記述
+
+  # ゲストログイン用の記述
   def guest_sign_in
-    user = User.guest
-    sign_in user
-    redirect_to user_path(user), notice: 'guestuserでログインしました。'
+    customer = Customer.guest
+    sign_in customer
+    redirect_to customer_path(customer), notice: 'ゲストユーザーでログインしました。'
   end
-end
 
 
   # GET /resource/sign_in

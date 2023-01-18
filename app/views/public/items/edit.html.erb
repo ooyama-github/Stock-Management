@@ -24,19 +24,19 @@
             </tr>
             <tr>
               <td>商品名</td>
-              <td><%= f.text_field :name %></td>
+              <td><%= f.text_field :name,required: true %></td>
             </tr>
             <tr>
               <td>購入金額</td>
-              <td><%= f.text_field :Purchase_amount %>円</td>
+              <td><%= f.text_field :Purchase_amount,required: true %>円</td>
             </tr>
             <tr>
               <td>売却金額</td>
-              <td><%= f.text_field :Sale_amount %>円</td>
+              <td><%= f.text_field :Sale_amount,required: true %>円</td>
             </tr>
             <tr>
               <td>購入日時</td>
-              <td><%= f.text_field :Date_of_purchase %></td>
+              <td><%= f.text_field :Date_of_purchase,required: true %></td>
             </tr>
             <tr>
               <td>ジャンル</td>
