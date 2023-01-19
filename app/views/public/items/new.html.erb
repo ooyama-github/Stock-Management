@@ -37,7 +37,7 @@
             </tr>
             <tr>
               <td>購入日時</td>
-              <td><%= f.text_field :Date_of_purchase, required: true %></td>
+              <td><%= f.date_field :purchased_at, required: true %></td>
             </tr>
             <tr>
               <td>商品名</td>
@@ -45,11 +45,11 @@
             </tr>
             <tr>
               <td>購入金額</td>
-              <td><%= f.number_field :Purchase_amount,required: true, min: 0 %>円</td>
+              <td><%= f.number_field :purchase_amount,required: true, min: 0 %>円</td>
             </tr>
             <tr>
               <td>売却金額</td>
-              <td><%= f.number_field :Sale_amount,required: true, min: 0 %>円</td>
+              <td><%= f.number_field :sale_amount,required: true, min: 0 %>円</td>
             </tr>
             <tr>
               <td>ジャンル</td>
@@ -57,7 +57,7 @@
             </tr>
             <tr>
               <td>メモ</td>
-              <td><%= f.text_field :memo %></td>
+              <td><%= f.text_area :memo, class: "hoge", size: "50x3" %></td>
             </tr>
           </tbody>
         </table>

@@ -37,7 +37,8 @@ class Public::CustomersController < ApplicationController
     def customer_params
        params.require(:customer).permit(:email, :name)
     end
-
+    
+    #ゲストユーザーの記述
     def ensure_guest_customer
       @customer = current_customer
       if @customer.name == "guestuser"

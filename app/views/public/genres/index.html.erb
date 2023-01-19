@@ -8,9 +8,9 @@
     <div class="col-8">
      <table>
       <%= form_with model: @genre, url: genres_path do |f| %>
-     <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
-     <td class="col-2"><%= f.text_field :name,required: true %></td>
-     <td class="col-4"><%= f.submit '新規登録', class: "btn btn-success"%></td>
+       <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
+       <td class="col-2"><%= f.text_field :name,required: true %></td>
+       <td class="col-4"><%= f.submit '新規登録', class: "btn btn-outline-success mb5 btn-lg" %></td>
       <% end %>
      </table>
      </div>

@@ -2,7 +2,7 @@
  <nav class="navbar navbar-light mb-2" style="background-color:#fff7ef;">
   <div class="container">
    <p class="text-left"><%= link_to root_path, data: {"turbolinks" => false} do %>
-    <%= image_tag 'stock.jpg',size: '110x110' %>
+    <%= image_tag 'logo.png',size: '110x110' %>
     <% end %>
    </p>
 
@@ -22,6 +22,7 @@
     <li class="nav-item">
      <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link" %>
     </li>
+     <%= render 'layouts/search' %>
    </ul>
 
 

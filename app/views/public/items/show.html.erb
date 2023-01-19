@@ -15,7 +15,7 @@
         <tbody>
           <tr>
             <td>購入日時</td>
-            <td><%= @item.Date_of_purchase %></td>
+            <td><%= @item.purchased_at %></td>
           </tr>
           <tr>
             <td>商品名</td>
@@ -23,15 +23,15 @@
           </tr>
           <tr>
             <td>購入金額</td>
-            <td><%= @item.Purchase_amount %>円</td>
+            <td><%= @item.purchase_amount %>円</td>
           </tr>
           <tr>
             <td>売却金額</td>
-            <td><%= @item.Sale_amount %>円</td>
+            <td><%= @item.sale_amount %>円</td>
           </tr>
           <tr>
             <td>利益</td>
-            <td><%= @item.Sale_amount - @item.Purchase_amount %>円</td>
+            <td><%= @item.sale_amount - @item.purchase_amount %>円</td>
           </tr>
           <tr>
             <td>ジャンル</td>

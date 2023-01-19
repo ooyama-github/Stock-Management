@@ -21,33 +21,33 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.where(customer_id: current_customer.id).page(params[:page])
     if params[:genre_id]
       @items = @items.where(genre_id: params[:genre_id])
-    elsif @search_items
-      @items = @search_items.page(params[:page])
-      @items_count = @search_items.all.count
+    # elsif @search_items
+    #   @items = @search_items.page(params[:page])
+    #   @items_count = @search_items.all.count
     end
   end
 
   def create
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id
-    # フラッシュメッセージを
     if @item.save
-      flash[:notice] = "商品の新規登録に成功しました!"
-      # 一覧ページに移動
-      redirect_to items_path
-    #うまく登録できなかった場合は新規登録画面に移動
+      # 成功したら一覧ページへ
+      redirect_to items_path, notice: "#{@item.name}を追加しました"
+      #失敗したら新規登録画面へ
     else
+      flash.now[:alert] = "追加に失敗しました"
       render :new
     end
   end
 
   def update
     @item = Item.find(params[:id])
-    # フラッシュメッセージを設定
     if @item.update(item_params)
-      flash[:notice] = "商品は編集されました！"
-      redirect_to items_path(@item.id)
+      # 成功したら一覧ページへ
+      redirect_to items_path(@item.id), notice: "#{@item.name}を更新しました"
     else
+      # 失敗したら編集ページへ
+      flash.now[:alert] = "更新に失敗しました"
       render :edit
     end
   end
@@ -55,14 +55,14 @@ class Public::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path
+    redirect_to items_path, alert: "#{@item.name}を削除しました"
   end
 
 
   # ストロングパラメータ
   private
     def item_params
-      params.require(:item).permit(:image, :name, :Purchase_amount, :Sale_amount, :Date_of_purchase, :genre_id, :memo)
+      params.require(:item).permit(:image, :name, :purchase_amount, :sale_amount, :purchased_at, :genre_id, :memo)
     end
 
 end
