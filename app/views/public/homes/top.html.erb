@@ -1,38 +1,84 @@
 <div class="container">
- <div class="col-10 mx-auto">
-  <div class = "main-visual">
-   <div class = "main-visual-content">
-    <div class="jumbotron"  style= "background-size:cover;">
-     <p class="lead">ようこそStock Managementへ！</p>
-     <!--顧客がサインインした場合-->
-     <% if customer_signed_in? %>
-      <p>さっそく収支管理を始めてみよう！</p>
+  <div class="jumbotron"  style= "background-size:cover;">
+    <div class="text-center">
+      <h2>～収支管理で、生活を豊かに～</h2>
+      <p>どんどん溜まっていく持ち物。<br>
+        ついつい放置していませんか？<br>
+        そんな生活を変えるアプリです。
+      </p>
+      <p>このアプリと一緒に、気持ちまでスッキリしませんか？</p>
 
-
-     <!--＜サインインしていない場合＞-->
-     <% else %>
-      <p>このアプリは収支管理アプリです</p>
-      <p>このアプリを使うには会員登録が必要です。</p>
-      <div>さあ、始めましょう！</div>
-      <div>※登録は１分で完了します</div>
-     <% end %>
+      <div class="btn-container">
+        <% if customer_signed_in? %>
+          <%# ログイン時 %>
+          <%= link_to "在庫をチェック", items_path, class: "btn btn-outline-info rounded-pill" %>
+        <% end %>
+      </div>
     </div>
-   </div>
   </div>
- </div>
 
-
- <div class="btn-wrapper col-10 mx-auto">
-  <div class="row">
-   <% unless customer_signed_in? %>
-    <%= link_to "ゲストログイン(閲覧用)",customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-   </div>
-   <div class="row">
-    <%= link_to "ログイン", new_customer_session_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in" %>
-   </div>
-   <div class="row">
-    <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-info btn-sm btn-block  sign_up" %>
-   <% end %>
-  </div>
- </div>
+  <section>
+    <div class="text-center">
+      <h2>アプリ説明</h2>
+      <p>
+        家にある持ち物を<br>
+        <b>登録、確認、収支管理</b>できるアプリです！
+      </p>
+    </div>
+  </section>
 </div>
+
+<div class="container-fluid py-5 mw-md">
+  <section>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-center">
+          <h2 class="text-success">商品を一覧に登録</h2>
+          <p>
+            商品をリストに追加し　　　　<br>
+            商品の変更、削除ができます。<br>
+            また、商品の売上金計算も　　<br>
+            自動で行います！
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="featurette-image img-fluid" src="/assets/item.png",size: "100x100" >
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-center">
+          <h2 class="text-success">ジャンル分け機能</h2>
+          <p>
+            商品をジャンルごとに分け<br>
+            ジャンルごとの商品の　　<br>
+            売り上げ計算が可能です！
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="featurette-image img-fluid" src="/assets/genre.png">
+      </div>
+    </div>
+  </section>
+</div>
+
+<section>
+  <div class="d-flex justify-content-center">
+    <div class="col-lg-6 d-flex flex-column">
+      <% unless customer_signed_in? %>
+        <h2 class="text-center">さあ はじめよう!</h2>
+        <p class="text-center">登録は1分で完了します。</p>
+        <div class="text-center text-align start">
+          <%= link_to "ゲストログイン(閲覧用)",customers_guest_sign_in_path, class: "btn btn-outline-secondary rounded-pill", method: :post %>
+          <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-success rounded-pill" %>
+          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-info rounded-pill" %>
+        </div>
+      <% end %>
+    </div>
+ </div>
+<section>
