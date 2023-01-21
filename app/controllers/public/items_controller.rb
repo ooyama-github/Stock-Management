@@ -21,6 +21,10 @@ class Public::ItemsController < ApplicationController
     if params[:genre_id]
       @items = @items.where(genre_id: params[:genre_id])
     end
+    # 取引完了の合計金額を表示(itemモデルにも記載あり)
+    @sale_totals = Item.get_sales_total(current_customer).page(params[:page])
+    # 別の記述方法（この方法でも取引完了の合計金額を表示できる↓）
+    # @sale_totals = where(customer_id: current_customer.id, item_status: 5).page(params[:page])
   end
 
   def create
@@ -58,7 +62,7 @@ class Public::ItemsController < ApplicationController
   # ストロングパラメータ
   private
     def item_params
-      params.require(:item).permit(:image, :name, :purchase_amount, :sale_amount, :purchased_at, :genre_id, :memo)
+      params.require(:item).permit(:image, :name, :purchase_amount, :sale_amount, :purchased_at, :genre_id, :memo, :item_status)
     end
 
 end

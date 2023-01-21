@@ -1,14 +1,14 @@
 <header>
- <nav class="navbar navbar-light mb-2" style="background-color:#fff7ef;">
+ <nav class="navbar navbar-light mb-2" style="background-color:#003333;">
   <div class="container">
    <p class="text-left"><%= link_to root_path, data: {"turbolinks" => false} do %>
-    <%= image_tag 'logo.png',size: '110x110' %>
+    <%= image_tag 'Stock Management.png',size: '110x110' %>
     <% end %>
    </p>
 
  <!-- 顧客サインイン後-->
  <% if customer_signed_in? %>
-  <span>ようこそ！<%= current_customer.name %>さん</span>
+  <span class="text-white">ようこそ！<%= current_customer.name %>さん</span>
    <ul class="nav justify-content-end">
     <li class="nav-item">
      <%= link_to "マイページ", customers_mypage_path, class: "nav-link" %>

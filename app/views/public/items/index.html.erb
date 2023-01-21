@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col-2">
@@ -22,53 +21,57 @@
       <%= link_to genres_path,class:"btn btn-outline-primary mb5 btn-lg" do %>
         <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> ジャンル追加</span>
       <% end %>
-
-      <table class="table table-bordered table-striped mt-4">
-        <thead class="table-primary">
-          <tr>
-            <th>写真</th>
-            <th>購入日時</th>
-            <th>商品名</th>
-            <th>ジャンル</th>
-            <th>購入金額</th>
-            <th>売却金額</th>
-            <th>利益</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @items.each do |item| %>
+      
+      <!--CSSで画面幅を調整-->
+      <div style="margin-inline: overflow-x: auto; white-space: nowrap;width: 800px;">
+        <table class="table table-bordered table-striped shadow mt-4">
+          <thead class="table-primary">
             <tr>
-              <td>
-                <% if item.image.attached? %>
-                  <%= image_tag item.image, size: "100x100" %>
-                <% else %>
-                  <%= image_tag 'noimage.png',size: "100x100" %>
-                <% end %>
-              </td>
-              <td><%= item.purchased_at %></td>
-              <td>
-                <%= link_to item_path(item) do %>
-                  <%= item.name %>
-                <% end %>
-              </td>
-              <td><%= item.genre.name %></td>
-              <td><%= item.purchase_amount %>円</td>
-              <td><%= item.sale_amount %>円</td>
-              <td><%= item.sale_amount - item.purchase_amount %>円</td>
-              <td>
-                <%= link_to item_path(item), class: "btn btn-success" do %>
-                  <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
-                <% end %>
-              </td>
+              <th>写真</th>
+              <th>購入日時</th>
+              <th>商品名</th>
+              <th>ジャンル</th>
+              <th>購入金額</th>
+              <th>売却金額</th>
+              <th>利益</th>
+              <th>販売ステータス</th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+              <tr>
+                <td>
+                  <% if item.image.attached? %>
+                    <%= image_tag item.image, size: "100x100" %>
+                  <% else %>
+                    <%= image_tag 'noimage.png',size: "100x100" %>
+                  <% end %>
+                </td>
+                <td><%= item.purchased_at %></td>
+                <td>
+                  <%= link_to item_path(item) do %>
+                    <%= truncate(item.name, :length => 10) %>
+                  <% end %>
+                </td>
+                <td><%= item.genre.name %></td>
+                <td><%= item.purchase_amount %>円</td>
+                <td><%= item.sale_amount %>円</td>
+                <td><%= item.sale_amount - item.purchase_amount %>円</td>
+                <td><%= item.item_status_i18n %></td>
+                <td>
+                  <%= link_to item_path(item), class: "btn btn-success" do %>
+                    <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
       <!--全合計部分-->
-      <table class="table table-bordered table-striped mt-4">
+      <table class="table table-bordered table-striped shadow mt-4">
         <thead class="table-primary">
           <tr style="font-size: 18px">
             <th>購入合計</th>
@@ -79,8 +82,8 @@
         <tbody>
           <tr>
             <td><%= @items.sum(:purchase_amount) %>円</td>
-            <td><%= @items.sum(:sale_amount) %>円</td>
-            <td><%= @items.sum(:sale_amount) - @items.sum(:purchase_amount) %>円</td>
+            <td><%= @sale_totals.sum(:sale_amount) %>円</td>
+            <td><%= @sale_totals.sum(:sale_amount) - @sale_totals.sum(:purchase_amount) %>円</td>
           </tr>
         </tbody>
       </table>

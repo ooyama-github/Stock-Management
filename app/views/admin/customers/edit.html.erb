@@ -10,19 +10,19 @@
     <%= form_with model: @admin_customer, url: admin_customer_path, method: :patch do |f| %>
       <table class="table">
         <tr>
-          <th>会員ID</th>
+          <th class="table-primary">会員ID</th>
           <th><%= @admin_customer.id %></th>
         </tr>
         <tr>
-          <th>氏名</th>
+          <th class="table-primary">氏名</th>
           <th><%= f.text_field :name,required: true %></th>
         </tr>
         <tr>
-          <th>メールアドレス</th>
+          <th class="table-primary">メールアドレス</th>
           <th><%= f.email_field :email,required: true %></th>
         </tr>
         <tr>
-          <th>会員ステータス</th>
+          <th class="table-primary">会員ステータス</th>
           <th>
             <% if @admin_customer.is_deleted == false %>
               <%= f.radio_button :is_deleted, false, checked:true, class:"text-success" %>有効

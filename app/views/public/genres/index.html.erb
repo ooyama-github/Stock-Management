@@ -15,13 +15,14 @@
      </table>
      </div>
    </div>
-     
+
    <div class="row">
      <div class="col-6">
       <table class='table'>
        <thead>
-        <tr class="table-secondary">
+        <tr class="table-primary">
          <th>ジャンル</th>
+         <th></th>
          <th></th>
         </tr>
        </thead>
@@ -30,6 +31,7 @@
         <tr class="border-bottom">
          <td><%= genre.name %></td>
          <td><%= link_to '編集する', edit_genre_path(genre.id), class: "btn btn-success"%></td>
+         <td><%= link_to '削除する', genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
         </tr>
        <% end %>
        </tbody>

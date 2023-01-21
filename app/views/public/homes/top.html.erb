@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="jumbotron"  style= "background-size:cover;">
+<div class="main-container">
+  <div class="jumbotron jumbotron-fluid text-white"  style="background: url(<%= asset_path "sofa.png" %>) center; background-size:cover;">
     <div class="text-center">
       <h2>～収支管理で、生活を豊かに～</h2>
       <p>どんどん溜まっていく持ち物。<br>
@@ -11,7 +11,7 @@
       <div class="btn-container">
         <% if customer_signed_in? %>
           <%# ログイン時 %>
-          <%= link_to "在庫をチェック", items_path, class: "btn btn-outline-info rounded-pill" %>
+          <%= link_to "在庫をチェック", items_path, class: "btn btn-info rounded-pill" %>
         <% end %>
       </div>
     </div>
@@ -38,8 +38,7 @@
             商品をリストに追加し　　　　<br>
             商品の変更、削除ができます。<br>
             また、商品の売上金計算も　　<br>
-            自動で行います！
-          </p>
+            自動で行います！　　　　　　</p>
         </div>
       </div>
       <div class="col-md-6">

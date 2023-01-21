@@ -1,0 +1,10 @@
+ja:
+    enums:
+      item:
+        item_status:
+          before_exhibition: "出品前"
+          exhibit: "出品中"
+          waiting_for_payment: "入金待ち"
+          shipping_preparation: "発送準備中"
+          waiting_for_evaluation: "評価待ち"
+          sold: "取引完了"

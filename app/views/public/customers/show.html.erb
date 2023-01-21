@@ -7,19 +7,19 @@
     <div class="col-10">
       <h1>マイページ</h1>
       <!--ゲストユーザーがプロフィール編集画面に行けないようにする記述-->
-      <% if @customer.name != "guestuser" %>
+      <% if @customer.name != "ゲストユーザー" %>
         <p class="font-weight-bold h4">登録情報　<%= link_to "編集する", customers_edit_path, class:"btn btn-success" %></p>
       <% end %>
 
-      <table class="table table-bordered">
+      <table class="table table-bordered shadow">
         <tbody>
           <tr></tr>
           <tr>
-            <td class="table-secondary">氏名</td>
+            <td class="table-primary">氏名</td>
             <td><%= @customer.name %></td>
           </tr>
           <tr>
-            <td class="table-secondary">メールアドレス</td>
+            <td class="table-primary">メールアドレス</td>
             <td><%= @customer.email %></td>
           </tr>
         </tbody>

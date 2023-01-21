@@ -14,7 +14,7 @@
     </div>
 
 
-    <div class="col-6 offset-md-1">
+    <div class="col-7 offset-md-1">
       <%= form_with model: @item,url: item_path(@item.id), method: :patch do |f| %>
         <table class="table table-borderless">
           <tbody>
@@ -41,6 +41,10 @@
             <tr>
               <td>ジャンル</td>
               <td><%= f.select :genre_id, options_from_collection_for_select( Genre.all, :id, :name) %></td>
+            </tr>
+            <tr>
+              <td>販売ステータス</td>
+              <td><%= f.select :item_status, Item.item_statuses_i18n.invert, selected: @item.item_status, :required => true %></td>
             </tr>
             <tr>
               <td>メモ</td>

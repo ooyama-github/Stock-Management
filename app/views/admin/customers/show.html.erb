@@ -12,19 +12,19 @@
       <div class="row-lg-11">
         <tbody>
           <tr>
-            <th>会員ID</th>
+            <th class="table-primary">会員ID</th>
             <th><%= @admin_customer.id %></th>
           </tr>
           <tr>
-            <th>氏名</th>
+            <th class="table-primary">氏名</th>
             <th><%= @admin_customer.name %></th>
           </tr>
           <tr>
-            <th>メールアドレス</th>
+            <th class="table-primary">メールアドレス</th>
             <th><%= @admin_customer.email %></th>
           </tr>
           <tr>
-            <th>会員ステータス</th>
+            <th class="table-primary">会員ステータス</th>
             <th>
               <% @admin_customer.is_deleted %>
               <% if @admin_customer.is_deleted == false %><div class="text-success">有効</div>

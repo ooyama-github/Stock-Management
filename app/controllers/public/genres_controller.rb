@@ -26,6 +26,12 @@ class Public::GenresController < ApplicationController
     end
   end
 
+  def destroy
+    @genre = Genre.find(params[:id])
+    @genre.destroy
+    redirect_to genres_path, alert: "#{@genre.name}を削除しました!"
+  end
+
 
   private
 

@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update', as: 'customers_update'
     patch 'withdraw' => 'customers#withdraw', as: 'customers_withdraw'
     resources :items, only: [:new, :index, :show, :edit, :create, :update, :destroy]
-    resources :genres, only: [:index,:create,:edit,:update]
+    resources :genres, only: [:index,:create,:edit,:update, :destroy]
   end
 
 
