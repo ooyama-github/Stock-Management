@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row-lg-11">
     <div class="col-3">
-      <h5 class="bg-light text-center">管理者ログイン</h5>
+      <h2 class="bg-light text-center">管理者ログイン</h2>
     </div>
   </div>
   <div class="row-lg-11">
     <%= render "admin/shared/error_messages", resource: resource %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <table class="table">
+    <table class="table table-bordered shadow">
       <tbody>
         <tr>
           <td><%= f.label :メールアドレス %></td>

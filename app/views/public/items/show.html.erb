@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h2>商品詳細</h2>
+    <h1>商品詳細</h1>
   </div>
   <div class="row">
     <div class=col-3>
@@ -11,7 +11,7 @@
       <% end %>
     </div>
     <div class="col-6 offset-md-1">
-      <table class="table table-borderless">
+      <table class="table table-bordered shadow">
         <tbody>
           <tr>
             <td>購入日時</td>
@@ -51,6 +51,10 @@
   </div>
 </div>
 <div class="col text-center">
-  <%= link_to '編集する', edit_item_path(@item.id), class: "btn btn-success" %>
-  <%= link_to '削除する', item_path(@item.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+  <%= link_to edit_item_path(@item.id), class: "btn btn-success" do %>
+    <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+  <% end %>
+  <%= link_to item_path(@item.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" do %>
+    <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline">削除</span>
+  <% end %>
 </div>

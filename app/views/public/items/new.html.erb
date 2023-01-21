@@ -29,7 +29,7 @@
 
     <div class="col-8 offset-md-1">
     <%= form_with model: @item,url: items_path do |f| %>
-        <table class="table table-borderless">
+        <table class="table table-bordered shadow">
           <tbody>
             <tr>
               <td>商品画像</td>
@@ -66,7 +66,9 @@
           </tbody>
         </table>
         <div class="col text-center">
-        <%= f.submit "　　新規登録　　",class:"btn btn-success center-block" %>
+          <%= button_tag type: "submit",  class:"btn btn-outline-success mb5 btn-lg" do %>
+            <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> 新規登録</span>
+          <% end %>
         </div>
       <% end %>
     </div>

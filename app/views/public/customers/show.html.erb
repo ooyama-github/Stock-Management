@@ -8,18 +8,22 @@
       <h1>マイページ</h1>
       <!--ゲストユーザーがプロフィール編集画面に行けないようにする記述-->
       <% if @customer.name != "ゲストユーザー" %>
-        <p class="font-weight-bold h4">登録情報　<%= link_to "編集する", customers_edit_path, class:"btn btn-success" %></p>
+        <p class="font-weight-bold h4">登録情報　
+        <%= link_to customers_edit_path, class:"btn btn-success" do %>
+          <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+        <% end %>
+        </p>
       <% end %>
 
       <table class="table table-bordered shadow">
         <tbody>
           <tr></tr>
           <tr>
-            <td class="table-primary">氏名</td>
+            <td>氏名</td>
             <td><%= @customer.name %></td>
           </tr>
           <tr>
-            <td class="table-primary">メールアドレス</td>
+            <td>メールアドレス</td>
             <td><%= @customer.email %></td>
           </tr>
         </tbody>

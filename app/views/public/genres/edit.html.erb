@@ -10,7 +10,11 @@
      <table>
       <td class="col-2 font-weight-bold"><%= f.label :name, "ジャンル名" %></td>
       <td class="col-2"><%= f.text_field :name,required: true %></td>
-      <td class="col-4"><%= f.submit '変更を保存', class: "btn btn-success"%></td>
+      <td class="col-4">
+        <%= button_tag type: "submit",  class: "btn btn-success" do %>
+          <i class="fas fa-edit"></i> 変更を保存
+        <% end %>
+      </td>
      </table>
      <% end %>
    </div>

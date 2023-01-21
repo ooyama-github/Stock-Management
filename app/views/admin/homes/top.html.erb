@@ -1,11 +1,12 @@
-<div class="col-md-9">
- <div class = "main-visual">
-  <div class = "main-visual-content">
-   <div class="jumbotron"  style= "background-size:cover;">
-    <p class="lead">ようこそStock Managementへ！</p>
-     <p>こちらは管理者画面です！</p>
-     <div>ヘッダーの会員一覧から会員データの編集が可能です！</div>
-   </div>
+<div class="main-container">
+  <div class="jumbotron jumbotron-fluid text-white"  style="background: url(<%= asset_path "admin.png" %>) center; background-size:cover;">
+    <div class="text-center">
+      <h2>～管理者画面～</h2>
+      <p>こちらは管理者画面です！<br>
+        管理者画面では会員の情報を編集できます。<br>
+      </p>
+      <p>会員の退会ステータスも変更できます。</p>
+      <p><%= link_to "会員一覧", admin_customers_path, class: "btn btn-info rounded-pill" %></p>
+    </div>
   </div>
- </div>
 </div>

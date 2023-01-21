@@ -4,25 +4,25 @@
   <div class="row-lg-10">
     <div class="col-11 offset-md-1">
       <div class="bg-light text-center">
-        <p><%= @admin_customer.name %>さんの会員情報編集</p>
+        <h2><%= @admin_customer.name %>さんの会員情報編集</h2>
       </div>
     </div>
     <%= form_with model: @admin_customer, url: admin_customer_path, method: :patch do |f| %>
-      <table class="table">
+      <table class="table table-bordered shadow">
         <tr>
-          <th class="table-primary">会員ID</th>
+          <th>会員ID</th>
           <th><%= @admin_customer.id %></th>
         </tr>
         <tr>
-          <th class="table-primary">氏名</th>
+          <th>氏名</th>
           <th><%= f.text_field :name,required: true %></th>
         </tr>
         <tr>
-          <th class="table-primary">メールアドレス</th>
+          <th>メールアドレス</th>
           <th><%= f.email_field :email,required: true %></th>
         </tr>
         <tr>
-          <th class="table-primary">会員ステータス</th>
+          <th>会員ステータス</th>
           <th>
             <% if @admin_customer.is_deleted == false %>
               <%= f.radio_button :is_deleted, false, checked:true, class:"text-success" %>有効
@@ -34,7 +34,9 @@
           </th>
         </tr>
       </table>
-      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <%= button_tag type: "submit",  class: "btn btn-success" do %>
+        <i class="fas fa-edit"></i> 変更を保存
+      <% end %>
     <% end %>
   </div>
 </div>

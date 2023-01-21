@@ -4,6 +4,7 @@ class Admin::CustomersController < ApplicationController
 
   def index
     @admin_customers = Customer.page(params[:page])
+    
   end
 
   def show

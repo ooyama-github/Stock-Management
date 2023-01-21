@@ -8,7 +8,11 @@
   </p>
   
   <p class="text-center">
-    <%= link_to "退会する", customers_withdraw_path, method: :patch,  class:"btn btn-danger", data: { confirm: "本当に退会しますか？" }  %>
-    <%= link_to "退会しない", customers_mypage_path(current_customer), class:"btn btn-secondary" %>
+    <%= link_to customers_withdraw_path, method: :patch,  class:"btn btn-danger", data: { confirm: "本当に退会しますか？" } do %>
+      <i class="fas fa-user-slash"></i> <span class="d-none d-md-inline"> 退会する</span>
+    <% end %>
+    <%= link_to customers_mypage_path(current_customer), class:"btn btn-secondary" do %>
+      <i class="fas fa-user"></i> <span class="d-none d-md-inline"> 退会しない</span>
+    <% end %>
   </p>
 </div>

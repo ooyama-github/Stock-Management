@@ -4,7 +4,7 @@
       <h1>　会員情報編集</h1>
       <%= form_with model: @customer, url: customers_update_path, method: :PATCH do |f| %>
       <%= render "public/shared/error_messages", resource: @customer %>
-        <table class="table table-borderless">
+        <table class="table table-bordered shadow">
           <tbody>
             <tr>
               <td><%= f.label :"氏名" %></td>
@@ -14,14 +14,17 @@
               <td><%= f.label :"メールアドレス" %></td>
               <td><%= f.text_field :email %></td>
             </tr>
-            <tr>
-              <td></td>
-              <td><%= f.submit :"編集内容を保存",class:"btn btn-success"%></td>
-              <td><%= link_to "退会する", customers_unsubscribe_path(@customer), class:"btn btn-danger" %></td>
-            </tr>
           </tbody>
         </table>
       <% end %>
+      <div class="col text-center">
+        <%= button_tag type: "submit",  class: "btn btn-success" do %>
+          <i class="fas fa-edit"></i> 変更を保存
+        <% end %>
+        <%= link_to customers_unsubscribe_path(@customer), class:"btn btn-danger" do %>
+          <i class="fas fa-user-slash"></i> <span class="d-none d-md-inline"> 退会する</span>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
