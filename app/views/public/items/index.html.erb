@@ -6,14 +6,30 @@
     </div>
 
     <div class="col-10">
-      <h1 class="text-center">在庫一覧(全 
+      <h1 class="text-center">在庫一覧(全
           <% if @items.empty? %>
             0件)
           <% else %>
             <%= @items.count %>件)
           <% end %>
       </h1>
-
+      
+      
+      <!--購入ステータス検索-->
+      <div class="dropdown text-right">
+        <%= link_to  '', class:'btn btn-info dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': true, 'aria-expanded': false do%>
+          <i class="fas fa-search"></i> 販売ステータス検索
+        <% end %>
+        <div class="dropdown-menu">
+          <%= link_to "全て", items_path, class:'dropdown-item text-primary' %>
+          <%= link_to "出品前",items_path(item_status: "before_exhibition", genre_id: params[:genre_id]), class:'dropdown-item' %>
+          <%= link_to "出品中",items_path(item_status: "exhibit", genre_id: params[:genre_id]), class:'dropdown-item' %>
+          <%= link_to "入金待ち",items_path(item_status: "waiting_for_payment", genre_id: params[:genre_id]), class:'dropdown-item' %>
+          <%= link_to "発送準備中",items_path(item_status: "shipping_preparation", genre_id: params[:genre_id]), class:'dropdown-item' %>
+          <%= link_to "評価待ち",items_path(item_status: "waiting_for_evaluation", genre_id: params[:genre_id]), class:'dropdown-item' %>
+          <%= link_to "取引完了",items_path(item_status: "sold", genre_id: params[:genre_id]), class:'dropdown-item' %>
+        </div>
+      </div>
       <!--商品追加、ジャンル追加ボタン作成-->
       <%= link_to new_item_path, class:"btn btn-outline-success mb5 btn-lg" do %>
         <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> 商品追加</span>
@@ -21,7 +37,9 @@
       <%= link_to genres_path,class:"btn btn-outline-primary mb5 btn-lg" do %>
         <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> ジャンル追加</span>
       <% end %>
-      
+        
+        
+
       <!--CSSで画面幅を調整-->
       <div style="margin-inline: overflow-x: auto; white-space: nowrap;width: 800px;">
         <table class="table table-bordered table-striped shadow mt-4">
