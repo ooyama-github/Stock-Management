@@ -1,59 +1,96 @@
 <header>
- <nav class="navbar navbar-light mb-2" style="background-color:#003333;">
-  <div class="container">
-   <p class="text-left"><%= link_to root_path, data: {"turbolinks" => false} do %>
-    <%= image_tag 'Stock Management.png',size: '110x110' %>
-    <% end %>
-   </p>
-
- <!-- 顧客サインイン後-->
- <% if customer_signed_in? %>
-  <span class="text-white">ようこそ！<%= current_customer.name %>さん</span>
-   <ul class="nav justify-content-end">
-    <li class="nav-item">
-     <%= link_to "マイページ", customers_mypage_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-     <%= link_to "在庫一覧", items_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-     <%= link_to "about", about_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link" %>
-    </li>
-     <%= render 'layouts/search' %>
-   </ul>
+  <nav class="navbar navbar-light mb-2" style="background-color:#003333;">
+    <div class="container">
+      <p class="text-left">
+        <%= link_to root_path, data: {"turbolinks" => false} do %>
+          <%= image_tag 'Stock Management.png',size: '110x110' %>
+        <% end %>
+      </p>
 
 
-   <!--＜管理者がログインした場合＞-->
+      <!-- 顧客サインイン後-->
+      <% if customer_signed_in? %>
+        <span class="text-white">ようこそ！<%= current_customer.name %>さん</span>
+        <%= render 'layouts/search' %>
+
+        <div class="dropdown">
+          <%= link_to '#', class: 'nav-link p-1 mx-2', 'data-toggle': :dropdown, 'aria-haspopup': :true, 'aria-expanded': :false do %>
+          <%= image_tag 'icon.png', size:'40x40' %>
+            <i class="fas fa-caret-down"></i>
+          <% end %>
+
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <%= link_to customers_mypage_path, class:'dropdown-item text-dark' do %>
+                <i class="fas fa-home"></i>マイページ
+              <% end %>
+            </li>
+            <li>
+             <%= link_to items_path, class:'dropdown-item text-dark' do %>
+               <i class="fas fa-weight-hanging"></i>在庫一覧
+             <% end %>
+            </li>
+            <li>
+             <%= link_to about_path, class:'dropdown-item text-dark' do %>
+               <i class="fas fa-yin-yang"></i>about
+             <% end %>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+             <%= link_to destroy_customer_session_path, method: :delete, class:'dropdown-item text-dark' do %>
+               <i class="fas fa-sign-out-alt"></i>ログアウト
+             <% end %>
+            </li>
+          </ul>
+        </div>
+
+
+      <!--＜管理者がログインした場合＞-->
       <% elsif admin_signed_in? %>
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <%= link_to "会員一覧",admin_customers_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
-        </li>
-      </ul>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <%= link_to "会員一覧",admin_customers_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        </ul>
 
 
+      <!--＜サインインしていない場合＞-->
+      <% else %>
+        <div class="dropdown">
+          <%= link_to '#', class: 'nav-link p-1 mx-2', 'data-toggle': :dropdown, 'aria-haspopup': :true, 'aria-expanded': :false do %>
+          <%= image_tag 'icon.png', size:'40x40' %>
+            <i class="fas fa-caret-down"></i>
+          <% end %>
 
-  <!--＜サインインしていない場合＞-->
-  <% else %>
-  <ul class="nav justify-content-end">
-   <li class="nav-item">
-    <%= link_to "About", about_path, class: "nav-link" %>
-   </li>
-   <li class="nav-item">
-    <%= link_to "新規登録", new_customer_registration_path, class: "nav-link" %>
-   </li>
-   <li class="nav-item">
-    <%= link_to "ログイン", customer_session_path, class: "nav-link" %>
-   </li>
-   <li>
-    <%= link_to "管理者ログイン", new_admin_session_path, class: "nav-link" %>
-   </li>
-  </ul>
-  <% end %>
+          <ul class="dropdown-menu dropdown-menu-right">
+           <li>
+             <%= link_to about_path, class:'dropdown-item text-dark' do %>
+               <i class="fas fa-yin-yang"></i>about
+             <% end %>
+           </li>
+           <li>
+             <%= link_to new_customer_registration_path, class:'dropdown-item text-dark' do %>
+               <i class="fas fa-user-plus"></i>新規登録
+             <% end %>
+           </li>
+           <li>
+             <%= link_to customer_session_path, class:'dropdown-item text-dark' do %>
+               <i class="fas fa-sign-in-alt"></i>ログイン
+             <% end %>
+           </li>
+           <li>
+             <%= link_to new_admin_session_path, class:'dropdown-item text-dark' do %>
+               <i class="fas fa-users-cog"></i>管理者ログイン
+             <% end %>
+           </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </nav>
  </header>

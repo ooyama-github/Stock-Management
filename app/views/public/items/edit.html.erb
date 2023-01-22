@@ -24,15 +24,15 @@
             </tr>
             <tr>
               <td>商品名</td>
-              <td><%= f.text_field :name,required: true %></td>
+              <td><%= f.text_field :name, :placeholder => "商品名を入力", required: true %></td>
             </tr>
             <tr>
               <td>購入金額</td>
-              <td><%= f.number_field :purchase_amount,required: true, min: 0 %>円</td>
+              <td><%= f.number_field :purchase_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
             </tr>
             <tr>
               <td>売却金額</td>
-              <td><%= f.number_field :sale_amount,required: true, min: 0 %>円</td>
+              <td><%= f.number_field :sale_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
             </tr>
             <tr>
               <td>購入日時</td>
@@ -48,7 +48,7 @@
             </tr>
             <tr>
               <td>メモ</td>
-              <td><%= f.text_area :memo, class: "hoge", size: "50x3" %></td>
+              <td><%= f.text_area :memo, :placeholder => "メモを入力", class: "hoge", size: "50x3" %></td>
             </tr>
           </tbody>
         </table>

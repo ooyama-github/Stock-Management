@@ -1,18 +1,20 @@
-<div class="container">
-  <h1 class="text-center">本当に退会しますか？</h1>
-  
-  <p class="text-center">
-    退会すると、会員登録情報や<br>
-    これまでの購入履歴が閲覧できなくなります。<br>
-    退会する場合は、「退会する」をクリックしてください。
-  </p>
-  
-  <p class="text-center">
-    <%= link_to customers_withdraw_path, method: :patch,  class:"btn btn-danger", data: { confirm: "本当に退会しますか？" } do %>
-      <i class="fas fa-user-slash"></i> <span class="d-none d-md-inline"> 退会する</span>
-    <% end %>
-    <%= link_to customers_mypage_path(current_customer), class:"btn btn-secondary" do %>
-      <i class="fas fa-user"></i> <span class="d-none d-md-inline"> 退会しない</span>
-    <% end %>
-  </p>
+<div class='container my-5'>
+  <div class='h5 pt-4 my-5 text-center'>
+    <h1>本当に退会しますか？</h1>
+    
+    <p>
+      退会すると、会員登録情報や<br>
+      これまでの購入履歴が閲覧できなくなります。<br>
+      退会する場合は、「退会する」をクリックしてください。
+    </p>
+    
+    <p>
+      <%= link_to customers_withdraw_path, method: :patch,  class:"btn btn-danger", data: { confirm: "本当に退会しますか？" } do %>
+        <i class="fas fa-user-slash"></i> <span class="d-none d-md-inline"> 退会する</span>
+      <% end %>
+      <%= link_to customers_mypage_path(current_customer), class:"btn btn-secondary" do %>
+        <i class="fas fa-user"></i> <span class="d-none d-md-inline"> 退会しない</span>
+      <% end %>
+    </p>
+  </div>
 </div>
