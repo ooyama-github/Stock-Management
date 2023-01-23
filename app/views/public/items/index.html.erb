@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-2">
+    <div class="col-md-2">
       <!--ジャンル検索部分テンプレート呼び出し-->
       <%= render 'genrevar', genres: @genres %>
     </div>
 
-    <div class="col-10">
+    <div class="col-md-10">
       <h1 class="text-center">在庫一覧(全
           <% if @items.empty? %>
             0件)
@@ -13,8 +13,8 @@
             <%= @items.count %>件)
           <% end %>
       </h1>
-      
-      
+
+
       <!--購入ステータス検索-->
       <div class="dropdown text-right">
         <%= link_to  '', class:'btn btn-info dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': true, 'aria-expanded': false do%>
@@ -37,12 +37,11 @@
       <%= link_to genres_path,class:"btn btn-outline-primary mb5 btn-lg" do %>
         <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> ジャンル追加</span>
       <% end %>
-        
-        
+
 
       <!--CSSで画面幅を調整-->
-      <div style="margin-inline: overflow-x: auto; white-space: nowrap;width: 800px;">
-        <table class="table table-bordered table-striped shadow mt-4">
+      <div class="product-list">
+        <table class="table table-bordered table-striped table-hover shadow mt-4">
           <thead class="table-primary">
             <tr>
               <th>写真</th>
@@ -52,22 +51,24 @@
               <th>購入金額</th>
               <th>売却金額</th>
               <th>利益</th>
-              <th>販売ステータス</th>
+              <th>ステータス</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <% @items.each do |item| %>
               <tr>
-                <td>
-                  <% if item.image.attached? %>
-                    <%= image_tag item.image, size: "100x100" %>
-                  <% else %>
-                    <%= image_tag 'noimage.png',size: "100x100" %>
+                <td class="item">
+                  <%= link_to item_path(item) do %>
+                    <% if item.image.attached? %>
+                      <%= image_tag item.image, size: "100x100" %>
+                    <% else %>
+                      <%= image_tag 'noimage.png',size: "100x100" %>
+                    <% end %>
                   <% end %>
                 </td>
                 <td><%= item.purchased_at %></td>
-                <td>
+                <td class="item">
                   <%= link_to item_path(item) do %>
                     <%= truncate(item.name, :length => 10) %>
                   <% end %>
@@ -79,7 +80,7 @@
                 <td><%= item.item_status_i18n %></td>
                 <td>
                   <%= link_to item_path(item), class: "btn btn-success" do %>
-                    <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+                    <i class="fas fa-edit"></i> <span class="d-none d-md-inline"></span>
                   <% end %>
                 </td>
               </tr>

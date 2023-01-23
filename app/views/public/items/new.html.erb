@@ -1,73 +1,59 @@
-<% if @item.errors.any? %>
-
- <p><%= @item.errors.count %>errors prohibited this obj from being saved:</p>
-
- <ul>
-
-  <% @item.errors.full_messages.each do |message| %>
-
-   <li><%= message %></li>
-
-  <% end %>
-
- </ul>
-
-<% end %>
-
 <div class="container">
   <div class="row">
     <h2>商品新規登録</h2>
   </div>
   <div class="row">
-    <div class=col-3>
+    <div class="col-12 col-lg-4 text-center p-4">
       <% if @item.image.attached? %>
         <span><%= image_tag @item.image, size: "250x250", id: 'preview' %></span>
       <% else %>
         <span><%= image_tag 'noimage.png',size: "250x250", id: 'preview' %></span>
       <% end %>
     </div>
-
-    <div class="col-8 offset-md-1">
-    <%= form_with model: @item,url: items_path do |f| %>
-        <table class="table table-bordered shadow">
-          <tbody>
-            <tr>
-              <td>商品画像</td>
-              <td><%= f.file_field :image, accept: "image/jpg,image/png,image/jpeg", onchange: 'previewImage(this);' %></td>
-            </tr>
-            <tr>
-              <td>購入日時</td>
-              <td><%= f.date_field :purchased_at, required: true %></td>
-            </tr>
-            <tr>
-              <td>商品名</td>
-              <td><%= f.text_field :name, :placeholder => "商品名を入力", required: true %></td>
-            </tr>
-            <tr>
-              <td>購入金額</td>
-              <td><%= f.number_field :purchase_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
-            </tr>
-            <tr>
-              <td>売却金額</td>
-              <td><%= f.number_field :sale_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
-            </tr>
-            <tr>
-              <td>ジャンル</td>
-              <td><%= f.select :genre_id, options_from_collection_for_select( Genre.where(customer_id: current_customer.id), :id, :name),{ include_blank: "選択して下さい" }, :required => true %></td>
-            </tr>
-            <tr>
-              <td>販売ステータス</td>
-              <td><%= f.select :item_status, Item.item_statuses_i18n.invert, {include_blank: "選択して下さい" }, :required => true %></td>
-            </tr>
-            <tr>
-              <td>メモ</td>
-              <td><%= f.text_area :memo, :placeholder => "メモを入力", class: "hoge", size: "50x3" %></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="col text-center">
+    
+    <div class="product-list">
+      <div class="col-12 col-lg-8">
+      <%= form_with model: @item,url: items_path do |f| %>
+          <table class="table table-bordered shadow">
+            <tbody>
+              <tr>
+                <td>商品画像</td>
+                <td><%= f.file_field :image, accept: "image/jpg,image/png,image/jpeg", onchange: 'previewImage(this);' %></td>
+              </tr>
+              <tr>
+                <td>購入日時</td>
+                <td><%= f.date_field :purchased_at, required: true %></td>
+              </tr>
+              <tr>
+                <td>商品名</td>
+                <td><%= f.text_field :name, :placeholder => "商品名を入力", required: true %></td>
+              </tr>
+              <tr>
+                <td>購入金額</td>
+                <td><%= f.number_field :purchase_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
+              </tr>
+              <tr>
+                <td>売却金額</td>
+                <td><%= f.number_field :sale_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
+              </tr>
+              <tr>
+                <td>ジャンル</td>
+                <td><%= f.select :genre_id, options_from_collection_for_select( Genre.where(customer_id: current_customer.id), :id, :name),{ include_blank: "選択して下さい" }, :required => true %></td>
+              </tr>
+              <tr>
+                <td>販売ステータス</td>
+                <td><%= f.select :item_status, Item.item_statuses_i18n.invert, {include_blank: "選択して下さい" }, :required => true %></td>
+              </tr>
+              <tr>
+                <td>メモ</td>
+                <td><%= f.text_area :memo, :placeholder => "メモを入力", class: "hoge", size: "50x3" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col- text-center">
           <%= button_tag type: "submit",  class:"btn btn-outline-success mb5 btn-lg" do %>
-            <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> 新規登録</span>
+            <i class="fas fa-pen-fancy"></i>新規登録
           <% end %>
         </div>
       <% end %>

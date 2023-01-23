@@ -1,2 +1,30 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+.product-list {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 540px;
+}
+// もともとmax-width: 540px;↑
+
+#about-logo {
+  background-image: url('../images/Stock Management.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: auto;
+  height: 500px;
+}
+
+
+.item:hover{
+  transform: scale(1.05, 1.05);
+  transition: all .2s;
+}

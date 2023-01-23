@@ -1,27 +1,29 @@
 <div class="container">
   <div class="row py-2">
-    <div class="col-10">
+    <div class="col-md-10">
       <h2>ジャンル一覧・追加</h2>
     </div>
   </div>
   <div class="row py-4">
-    <div class="col-8">
-     <table class="table table-bordered table-striped shadow">
-      <%= form_with model: @genre, url: genres_path do |f| %>
-       <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
-       <td class="col-2"><%= f.text_field :name,:placeholder => "ジャンルをを入力", required: true %></td>
-       <td class="col-4">
-         <%= button_tag type: "submit",  class: "btn btn-outline-success mb5 btn-lg" do %>
-           <i class="fas fa-pen-fancy"></i> 新規登録
-         <% end %>
-       </td>
-      <% end %>
-     </table>
-     </div>
+    <div class="product-list">
+      <div class="col-12 col-lg-8">
+       <table class="table table-bordered table-striped table-hover shadow ">
+        <%= form_with model: @genre, url: genres_path do |f| %>
+         <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
+         <td class="col-2"><%= f.text_field :name,:placeholder => "ジャンルをを入力", required: true %></td>
+         <td class="col-4">
+           <%= button_tag type: "submit",  class: "btn btn-outline-success mb5 btn-lg" do %>
+             <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> 新規登録</span>
+           <% end %>
+         </td>
+        <% end %>
+       </table>
+       </div>
+      </div>
    </div>
 
    <div class="row">
-     <div class="col-6">
+     <div class="col-md-6">
       <table class="table table-bordered table-striped shadow">
        <thead>
         <tr class="table-primary">

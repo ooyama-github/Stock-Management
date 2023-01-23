@@ -10,10 +10,10 @@
     
     <p>
       <%= link_to customers_withdraw_path, method: :patch,  class:"btn btn-danger", data: { confirm: "本当に退会しますか？" } do %>
-        <i class="fas fa-user-slash"></i> <span class="d-none d-md-inline"> 退会する</span>
+        <i class="fas fa-user-slash"></i>する
       <% end %>
       <%= link_to customers_mypage_path(current_customer), class:"btn btn-secondary" do %>
-        <i class="fas fa-user"></i> <span class="d-none d-md-inline"> 退会しない</span>
+        <i class="fas fa-user"></i>しない
       <% end %>
     </p>
   </div>

@@ -3,14 +3,14 @@
     <h1>商品詳細</h1>
   </div>
   <div class="row">
-    <div class=col-3>
+    <div class="col-12 col-lg-4 text-center p-4">
       <% if @item.image.attached? %>
-        <span><%= image_tag @item.image, size: "250x250" %></span>
+        <%= image_tag @item.image, size: "250x250" %>
       <% else %>
-        <span><%= image_tag 'noimage.png',size: "250x250" %></span>
+        <%= image_tag 'noimage.png',size: "250x250" %>
       <% end %>
     </div>
-    <div class="col-6 offset-md-1">
+    <div class="col-12 col-lg-8">
       <table class="table table-bordered shadow">
         <tbody>
           <tr>

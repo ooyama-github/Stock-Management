@@ -5,17 +5,19 @@
     </div>
   </div>
    <div class="row">
-    <div class="col-8">
-     <%= form_with model:@genre, url: genre_path(@genre.id) do |f| %>
-     <table>
-      <td class="col-2 font-weight-bold"><%= f.label :name, "ジャンル名" %></td>
-      <td class="col-2"><%= f.text_field :name,required: true %></td>
-      <td class="col-4">
-        <%= button_tag type: "submit",  class: "btn btn-success" do %>
-          <i class="fas fa-edit"></i> 変更を保存
+    <div class="product-list">
+      <div class="col-8">
+        <%= form_with model:@genre, url: genre_path(@genre.id) do |f| %>
+        <table>
+        <td class="col-2 font-weight-bold"><%= f.label :name, "ジャンル名" %></td>
+        <td class="col-2"><%= f.text_field :name,required: true %></td>
+        <td class="col-4">
+          <%= button_tag type: "submit",  class: "btn btn-success" do %>
+            <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 変更を保存</span>
+          <% end %>
+        </td>
+        </table>
         <% end %>
-      </td>
-     </table>
-     <% end %>
-   </div>
+      </div>
+    </div>
   </div>

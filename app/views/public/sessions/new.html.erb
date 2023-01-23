@@ -11,6 +11,7 @@
   </div>
   
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="product-list">
     <table class="table table-bordered shadow">
       <tbody>
         <tr>
@@ -27,6 +28,7 @@
         </tr>
       </tbody>
     </table>
+  </div>
   <% end %>
       
   <h4>会員登録がお済みでない方</h4>
