@@ -2,18 +2,21 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 
+// テーブルに横スクロールを付ける
 .product-list {
   overflow-x: scroll;
   white-space: nowrap;
 }
+
 
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
   max-width: 540px;
 }
-// もともとmax-width: 540px;↑
 
+
+// アバウトページの画像表示サイズ
 #about-logo {
   background-image: url('../images/Stock Management.png');
   background-position: center;
@@ -24,6 +27,7 @@
 }
 
 
+// カーソルを合わせるとホバーする
 .item:hover{
   transform: scale(1.05, 1.05);
   transition: all .2s;

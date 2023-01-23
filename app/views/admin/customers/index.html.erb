@@ -1,39 +1,41 @@
 <div class="container">
-  <div class="row">
-    <div class="col-11">
+  <div class="row-lg-10">
+    <div class="col-11 offset-md-1">
       <h2 class="text-center">会員一覧</h2>
     </div>
     <div class="col-1">
   </div>
 </div>
 
-<div class="row-lg-10">
-  <table class="table table-bordered table-striped shadow">
-    <thead class="table-primary">
-      <tr>
-        <th>会員ID</th>
-        <th>氏名</th>
-        <th>メールアドレス</th>
-        <th>ステータス</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!--顧客一覧情報表示処理-->
-      <% @admin_customers.each do |admin_customer| %>
+<div class="product-list">
+  <div class="row-lg-10">
+    <table class="table table-bordered table-striped shadow">
+      <thead class="table-primary">
         <tr>
-          <th><%= admin_customer.id %></th>
-          <th><%= link_to admin_customer.name, admin_customer_path(admin_customer.id) %></th>
-          <th><%= admin_customer.email %></th>
-          <th>
-            <% if admin_customer.is_deleted == false %><div class="text-success">有効</div>
-            <% elsif admin_customer.is_deleted == true %>退会
-            <%# end %>
-            <% end %>
-          </th>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <!--顧客一覧情報表示処理-->
+        <% @admin_customers.each do |admin_customer| %>
+          <tr>
+            <th><%= admin_customer.id %></th>
+            <th><%= link_to admin_customer.name, admin_customer_path(admin_customer.id) %></th>
+            <th><%= admin_customer.email %></th>
+            <th>
+              <% if admin_customer.is_deleted == false %><div class="text-success">有効</div>
+              <% elsif admin_customer.is_deleted == true %>退会
+              <%# end %>
+              <% end %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 <div class="pagination justify-content-center">
   <%= paginate @admin_customers %>

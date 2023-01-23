@@ -1,29 +1,27 @@
-<div class="container">
-  <div class="row-lg-11">
-    <div class="col-3">
-      <h2 class="bg-light text-center">管理者ログイン</h2>
+<% content_for(:title, '管理者ログイン') %>
+<div class='container my-5'>
+  <h2 class='ml-5'>管理画面ログイン</h2>
+
+  <%= form_with model: resource, as: resource_name, url: session_path(resource_name),local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :メールアドレス, class:'col col-form-label' %><br />
+      <div class='col'>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control'  %>
+      </div>
     </div>
-  </div>
-  <div class="row-lg-11">
-    <%= render "admin/shared/error_messages", resource: resource %>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <table class="table table-bordered shadow">
-      <tbody>
-        <tr>
-          <td><%= f.label :メールアドレス %></td>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com",required: true %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :パスワード %></td>
-          <td><%= f.password_field :password, autocomplete: "current-password",required: true %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
-        </tr>
-      </tbody>
-    </table>
-    <% end %>
-  </div>
+
+    <div class="form-group">
+      <%= f.label :パスワード, class:'col col-form-label' %><br />
+      <div class='col'>
+        <%= f.password_field :password, autocomplete: "current-password", class:'form-control'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class='col'>
+        <%= f.submit 'ログインする', class:"btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
+  <%# render "admin/shared/links" %>
 </div>
-<%= render "admin/shared/links" %>
