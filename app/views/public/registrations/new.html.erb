@@ -1,40 +1,52 @@
-<div class="container">
-  <div class="row-lg-11">
-    <h2>新規会員登録</h2>
-    <div class="col-11">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "public/shared/error_messages", resource: resource %>
-        <table class="table table-bordered shadow">
-          <tbody>
-            <tr>
-              <td>名前 <span class="badge badge-danger">必須</span></td>
-              <td><%= f.text_field :name, autofocus: true, :placeholder => "田中太郎", size:"20",required: true %></td>
-            </tr>
-            <tr>
-              <td>メールアドレス <span class="badge badge-danger">必須</span></td>
-              <td><%= f.email_field :email, autocomplete: "email",:placeholder => "sample@example.com",size:"20",required: true %></td>
-            </tr>
-            <tr>
-              <td>パスワード(<%= @minimum_password_length %>文字以上)</td>
-              <td><%= f.password_field :password, autocomplete: "new-password",size:"20",required: true %></td>
-            </tr>
-            <tr>
-              <td>パスワード(確認用)</td>
-              <td><%= f.password_field :password_confirmation, autocomplete: "new-password",size:"20",required: true %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><%= f.submit "　　新規登録　　",class:"btn btn-success center-block" %></td>
-            </tr>
-          </tbody>
-        </table>
-      <% end %>
+<div class='container-fluid my-5'>
+  <h2 class='ml-5'>新規登録</h2>
+  <%= form_with model: resource, as: resource_name, url: registration_path(resource_name),local: true do |f| %>
+    <%= render 'public/shared/error_messages', resource: resource %>
+
+    <div class='form-group'>
+      <div class='col col-form-label'>
+        <%= f.label :メールアドレス %> <span class="badge badge-danger">必須</span><br />
+      </div>
+      <div class='col'>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class:'form-control', required: true %>
+      </div>
     </div>
-  </div>
-  <div class="row-lg-11">
+
+    <div class='form-group'>
+      <div class='col col-form-label'>
+        <%= f.label :名前 %> <span class="badge badge-danger">必須</span><br />
+      </div>
+      <div class='col'>
+        <%= f.text_field :name, autofocus: true, autocomplete: 'name', class:'form-control', required: true %>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :パスワード, class:'col col-form-label' %><br />
+      <div class='col'>
+        <%= f.password_field :password, autocomplete: 'new-password', class:'form-control', required: true %>
+        <% if @minimum_password_length %>
+          <small class='form-text text-muted'>(<%= @minimum_password_length %> 文字以上)</small>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :パスワード（確認用）, class:'col col-form-label' %><br />
+      <div class='col'>
+        <%= f.password_field :password_confirmation, autocomplete: 'new-password', class:'form-control', required: true %>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <div class='col'>
+        <%= f.submit class:'form-control btn btn-info my-3' %>
+      </div>
+    </div>
+  <% end %>
+  <hr>
+  <div class='text-center text-black-50'>
     <h2>既に登録済みの方</h2>
-    <div class="col-11">
-      <p><%= render "public/shared/links" %>からログインしてください。</p>
-    </div>
+    <p><%= render "public/shared/links" %>からログインしてください。</p>
   </div>
 </div>
