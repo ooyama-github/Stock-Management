@@ -36,10 +36,10 @@ class Public::ItemsController < ApplicationController
     @item.customer_id = current_customer.id
     if @item.save
       # 成功したら一覧ページへ
-      redirect_to items_path, notice: "#{@item.name}を追加しました"
+      redirect_to items_path, notice: "#{@item.name}を追加しました!"
       #失敗したら新規登録画面へ
     else
-      flash.now[:alert] = "追加に失敗しました"
+      flash.now[:alert] = "追加に失敗しました!"
       render :new
     end
   end
@@ -48,10 +48,10 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update(item_params)
       # 成功したら一覧ページへ
-      redirect_to items_path(@item.id), notice: "#{@item.name}を更新しました"
+      redirect_to items_path(@item.id), notice: "#{@item.name}を更新しました!"
     else
       # 失敗したら編集ページへ
-      flash.now[:alert] = "更新に失敗しました"
+      flash.now[:alert] = "更新に失敗しました!"
       render :edit
     end
   end
@@ -59,7 +59,7 @@ class Public::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path, alert: "#{@item.name}を削除しました"
+    redirect_to items_path, alert: "#{@item.name}を削除しました!"
   end
 
 

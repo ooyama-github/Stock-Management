@@ -10,7 +10,7 @@ class Public::GenresController < ApplicationController
     @genre = Genre.new(genre_params)
     @genre.customer_id = current_customer.id
     @genre.save!
-    redirect_to genres_path
+    redirect_to genres_path, notice: "#{@genre.name}を追加しました!"
   end
 
   def edit
@@ -20,7 +20,7 @@ class Public::GenresController < ApplicationController
   def update
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
-      redirect_to genres_path
+      redirect_to genres_path, notice: "#{@genre.name}を更新しました!"
     else
       render :edit
     end

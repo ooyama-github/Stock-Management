@@ -13,7 +13,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to  customers_mypage_path
+      redirect_to  customers_mypage_path, notice: "変更内容を保存しました!"
     else
       render 'edit'
     end
@@ -29,15 +29,14 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to root_path, alert: "～退会が完了しました、ご利用ありがとうございました～"
   end
 
   private
     def customer_params
        params.require(:customer).permit(:email, :name)
     end
-    
+
     #ゲストユーザーの記述
     def ensure_guest_customer
       @customer = current_customer
