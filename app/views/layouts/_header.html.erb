@@ -68,8 +68,8 @@
 
           <ul class="dropdown-menu dropdown-menu-right">
            <li>
-             <%= link_to about_path, class:'dropdown-item text-dark' do %>
-               <i class="fas fa-yin-yang"></i>about
+             <%= link_to customers_guest_sign_in_path, class: 'dropdown-item text-dark', method: :post do%>
+               <i class="fas fa-user-tie"></i>ゲストログイン(閲覧用)
              <% end %>
            </li>
            <li>
@@ -85,6 +85,11 @@
            <li>
              <%= link_to new_admin_session_path, class:'dropdown-item text-dark' do %>
                <i class="fas fa-users-cog"></i>管理者ログイン
+             <% end %>
+           </li>
+           <li>
+             <%= link_to about_path, class:'dropdown-item text-dark' do %>
+               <i class="fas fa-yin-yang"></i>about
              <% end %>
            </li>
           </ul>
