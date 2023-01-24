@@ -14,7 +14,15 @@
   margin-left: auto;
   max-width: 100%;
 }
-// もともとmax-width: 540px
+// もともとmax-width: 540px↑
+
+
+// ログイン画面の幅変更
+.login {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 540px;
+}
 
 
 // アバウトページの画像表示サイズ
