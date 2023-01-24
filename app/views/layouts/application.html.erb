@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <% if current_page?(root_path) %>
+      <%= stylesheet_pack_tag 'homes/top', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,7 +21,11 @@
     <%= render 'layouts/flash' %>
     <%= yield %>
   </body>
+  
+  <footer>
+    <div class="footer"></div>
+  </footer>
 
   <!--フッター呼び出し-->
-  <%= render "layouts/footer" %>
+  <%#= render "layouts/footer" %>
 </html>
