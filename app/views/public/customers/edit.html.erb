@@ -3,7 +3,7 @@
     <div class="col-10">
       <h1>会員情報編集</h1>
       <%= form_with model: @customer, url: customers_update_path, method: :PATCH do |f| %>
-      <%= render "public/shared/error_messages", resource: @customer %>
+        <%= render "public/shared/error_messages", resource: @customer %>
         <table class="table table-bordered shadow">
           <tbody>
             <tr>
