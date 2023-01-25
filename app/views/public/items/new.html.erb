@@ -14,43 +14,42 @@
     <div class="product-list">
       <div class="col-12 col-lg-8">
       <%= form_with model: @item,url: items_path do |f| %>
-          <table class="table table-bordered shadow">
-            <tbody>
-              <tr>
-                <td>商品画像</td>
-                <td><%= f.file_field :image, accept: "image/jpg,image/png,image/jpeg", onchange: 'previewImage(this);' %></td>
-              </tr>
-              <tr>
-                <td>購入日時</td>
-                <td><%= f.date_field :purchased_at, required: true %></td>
-              </tr>
-              <tr>
-                <td>商品名</td>
-                <td><%= f.text_field :name, :placeholder => "商品名を入力", required: true %></td>
-              </tr>
-              <tr>
-                <td>購入金額</td>
-                <td><%= f.number_field :purchase_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
-              </tr>
-              <tr>
-                <td>売却金額</td>
-                <td><%= f.number_field :sale_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
-              </tr>
-              <tr>
-                <td>ジャンル</td>
-                <td><%= f.select :genre_id, options_from_collection_for_select( Genre.where(customer_id: current_customer.id), :id, :name),{ include_blank: "選択して下さい" }, :required => true %></td>
-              </tr>
-              <tr>
-                <td>販売ステータス</td>
-                <td><%= f.select :item_status, Item.item_statuses_i18n.invert, {include_blank: "選択して下さい" }, :required => true %></td>
-              </tr>
-              <tr>
-                <td>メモ</td>
-                <td><%= f.text_area :memo, :placeholder => "メモを入力", class: "hoge", size: "50x3" %></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="table table-bordered shadow">
+          <tbody>
+            <tr>
+              <td>商品画像</td>
+              <td><%= f.file_field :image, accept: "image/jpg,image/png,image/jpeg", onchange: 'previewImage(this);' %></td>
+            </tr>
+            <tr>
+              <td>購入日時</td>
+              <td><%= f.date_field :purchased_at, required: true %></td>
+            </tr>
+            <tr>
+              <td>商品名</td>
+              <td><%= f.text_field :name, :placeholder => "商品名を入力", required: true %></td>
+            </tr>
+            <tr>
+              <td>購入金額</td>
+              <td><%= f.number_field :purchase_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
+            </tr>
+            <tr>
+              <td>売却金額</td>
+              <td><%= f.number_field :sale_amount, :placeholder => "￥0～", required: true, min: 0 %>円</td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td><%= f.select :genre_id, options_from_collection_for_select( Genre.where(customer_id: current_customer.id), :id, :name),{ include_blank: "選択して下さい" }, :required => true %></td>
+            </tr>
+            <tr>
+              <td>販売ステータス</td>
+              <td><%= f.select :item_status, Item.item_statuses_i18n.invert, {include_blank: "選択して下さい" }, :required => true %></td>
+            </tr>
+            <tr>
+              <td>メモ</td>
+              <td><%= f.text_area :memo, :placeholder => "メモを入力", class: "hoge", size: "50x3" %></td>
+            </tr>
+          </tbody>
+        </table>
         <div class="col- text-center">
           <%= button_tag type: "submit",  class:"btn btn-outline-success mb5 btn-lg" do %>
             <i class="fas fa-pen-fancy"></i>新規登録
@@ -62,14 +61,13 @@
 </div>
 
 
-
-<!--画像を変えた時のJavascriptの記述-->
+<!--画像を変えた時の表示切替のJavascriptの記述-->
 <script>
-function previewImage(obj) {
-  const fileReader = new FileReader
-  fileReader.onload = (function() {
-    document.getElementById('preview').src = fileReader.result;
-  });
-  fileReader.readAsDataURL(obj.files[0]);
-}
+  function previewImage(obj) {
+    const fileReader = new FileReader
+    fileReader.onload = (function() {
+      document.getElementById('preview').src = fileReader.result;
+    });
+    fileReader.readAsDataURL(obj.files[0]);
+  }
 </script>
