@@ -11,7 +11,7 @@
 
 # URL
 
-### http://54.65.126.141/
+### https://stock-management-ooyama.com
 
 ゲストログインボタンからゲストユーザーとしてログイン可能です。
 
