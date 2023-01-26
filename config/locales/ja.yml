@@ -8,3 +8,19 @@ ja:
           shipping_preparation: "発送準備中"
           waiting_for_evaluation: "評価待ち"
           sold: "取引完了"
+          
+    views:
+      pagination:
+        first: "&laquo; 最初"
+        last: "最後 &raquo;"
+        previous: "&lsaquo; 前"
+        next: "次 &rsaquo;"
+        truncate: "..."
+        
+    views:
+      pagination:
+        first: <i class="fas fa-angle-double-left"></i>
+        last: <i class="fas fa-angle-double-right"></i>
+        previous: <i class="fas fa-angle-left"></i>
+        next: <i class="fas fa-angle-right"></i>
+        truncate: "..."

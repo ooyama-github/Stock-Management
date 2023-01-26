@@ -50,6 +50,7 @@
        <% end %>
        </tbody>
       </table>
+      <%= paginate @genres, theme: 'twitter-bootstrap-4' %>
       <div class="text-center">
           <%= link_to "在庫一覧へ", items_path, class: "btn btn-info rounded-pill" %>
       </div>
