@@ -15,13 +15,13 @@ class Public::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.where(customer_id: current_customer.id).page(params[:page])
+    @items = Item.where(customer_id: current_customer.id).page(params[:item_pagenate])
     # ジャンル検索のための記述
-    @genres = Genre.where(customer_id: current_customer.id).page(params[:page])
+    @genres = Genre.where(customer_id: current_customer.id).page(params[:genre_pagenate]).per(7)
     if params[:genre_id]
       @items = @items.where(genre_id: params[:genre_id])
     end
-    
+
     if params[:item_status]
      @items = @items.where(item_status: params[:item_status])
     end
