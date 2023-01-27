@@ -107,7 +107,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><%= @items.sum(:purchase_amount) %>円</td>
+            <td><%= @myitems.sum(:purchase_amount) %>円</td>
             <td><%= @sale_totals.sum(:sale_amount) %>円</td>
             <td><%= @sale_totals.sum(:sale_amount) - @sale_totals.sum(:purchase_amount) %>円</td>
           </tr>

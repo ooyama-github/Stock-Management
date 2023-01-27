@@ -16,6 +16,7 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.where(customer_id: current_customer.id).page(params[:item_pagenate])
+    @myitems = Item.where(customer_id: current_customer.id)
     # ジャンル検索のための記述
     @genres = Genre.where(customer_id: current_customer.id).page(params[:genre_pagenate]).per(7)
     if params[:genre_id]
