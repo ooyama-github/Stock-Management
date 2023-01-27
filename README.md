@@ -13,7 +13,7 @@
 
 ### https://stock-management-ooyama.com
 
-ゲストログインボタンからゲストユーザーとしてログイン可能です。
+ゲストログインボタンからゲストユーザーとしてログイン可能です。PC・スマホ対応。
 
 # テーマを選んだ理由
 
@@ -65,6 +65,8 @@
 - 常時SSL化
 
 # 設計書
+
+- [こちら](https://drive.google.com/file/d/1VDuzNxGQZMgV-9PBW8FnmVfmgQciJE7h/view?usp=sharing)をご覧ください。
 
 
 # 開発環境
