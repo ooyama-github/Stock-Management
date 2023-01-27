@@ -11,8 +11,9 @@
       <% end %>
     </div>
 
-    <div class="product-list">
-      <div class="col-12 col-lg-8">
+    
+    <div class="col-12 col-lg-8">
+      <div class="product-list">
         <%= form_with model: @item,url: item_path(@item.id), method: :patch do |f| %>
           <table class="table table-bordered shadow">
             <tbody>
