@@ -11,42 +11,44 @@
       <% end %>
     </div>
     <div class="col-12 col-lg-8">
-      <table class="table table-bordered shadow">
-        <tbody>
-          <tr>
-            <td>購入日時</td>
-            <td><%= @item.purchased_at %></td>
-          </tr>
-          <tr>
-            <td>商品名</td>
-            <td><%= @item.name %></td>
-          </tr>
-          <tr>
-            <td>購入金額</td>
-            <td><%= @item.purchase_amount %>円</td>
-          </tr>
-          <tr>
-            <td>売却金額</td>
-            <td><%= @item.sale_amount %>円</td>
-          </tr>
-          <tr>
-            <td>利益</td>
-            <td><%= @item.sale_amount - @item.purchase_amount %>円</td>
-          </tr>
-          <tr>
-            <td>ジャンル</td>
-            <td><%= @item.genre.name %></td>
-          </tr>
-          <tr>
-            <td>販売ステータス</td>
-            <td><%= @item.item_status_i18n %></td>
-          </tr>
-          <tr>
-            <td>メモ</td>
-            <td><%= @item.memo %></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="product-list">
+        <table class="table table-bordered shadow">
+          <tbody>
+            <tr>
+              <td>購入日時</td>
+              <td><%= @item.purchased_at %></td>
+            </tr>
+            <tr>
+              <td>商品名</td>
+              <td><%= @item.name %></td>
+            </tr>
+            <tr>
+              <td>購入金額</td>
+              <td><%= @item.purchase_amount %>円</td>
+            </tr>
+            <tr>
+              <td>売却金額</td>
+              <td><%= @item.sale_amount %>円</td>
+            </tr>
+            <tr>
+              <td>利益</td>
+              <td><%= @item.sale_amount - @item.purchase_amount %>円</td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td><%= @item.genre.name %></td>
+            </tr>
+            <tr>
+              <td>販売ステータス</td>
+              <td><%= @item.item_status_i18n %></td>
+            </tr>
+            <tr>
+              <td>メモ</td>
+              <td><%= @item.memo %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div class="text-center">
         <%= link_to edit_item_path(@item.id), class: "btn btn-success" do %>
           <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
