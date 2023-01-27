@@ -4,18 +4,20 @@
       <h1>会員情報編集</h1>
       <%= form_with model: @customer, url: customers_update_path, method: :PATCH do |f| %>
         <%= render "public/shared/error_messages", resource: @customer %>
-        <table class="table table-bordered shadow">
-          <tbody>
-            <tr>
-              <td><%= f.label :"氏名" %></td>
-              <td><%= f.text_field :name, :placeholder => "氏名を入力", required: true %></td>
-            </tr>
-            <tr>
-              <td><%= f.label :"メールアドレス" %></td>
-              <td><%= f.text_field :email, :placeholder => "メールアドレスを入力", required: true %></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="product-list">
+          <table class="table table-bordered shadow">
+            <tbody>
+              <tr>
+                <td><%= f.label :"氏名" %></td>
+                <td><%= f.text_field :name, :placeholder => "氏名を入力", required: true %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :"メールアドレス" %></td>
+                <td><%= f.text_field :email, :placeholder => "メールアドレスを入力", required: true %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div class="col text-right">
           <%= button_tag type: "submit", class: "btn btn-success" do %>
             <i class="fas fa-edit"></i> 保存
