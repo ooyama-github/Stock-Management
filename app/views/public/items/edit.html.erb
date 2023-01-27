@@ -39,7 +39,7 @@
               </tr>
               <tr>
                 <td>ジャンル</td>
-                <td><%= f.collection_select :genre_id, Genre.all, :id, :name %></td>
+                <td><%= f.select :genre_id, options_from_collection_for_select( Genre.where(customer_id: current_customer.id), :id, :name) %></td>
               </tr>
               <tr>
                 <td>販売ステータス</td>
