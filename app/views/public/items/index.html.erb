@@ -4,7 +4,7 @@
     <div class="col-md-2">
       <%= render 'genrevar', genres: @genres %>
     </div>
-    
+
     <!--在庫一覧の商品数合計を表示-->
     <div class="col-md-10">
       <h1 class="text-center">在庫一覧(全
@@ -31,8 +31,8 @@
           <%= link_to "取引完了",items_path(item_status: "sold", genre_id: params[:genre_id]), class:'dropdown-item' %>
         </div>
       </div>
-      
-      
+
+
       <!--商品追加、ジャンル追加ボタン作成-->
       <%= link_to new_item_path, class:"btn btn-outline-success mb5 btn-lg" do %>
         <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> 商品追加</span>
@@ -40,11 +40,12 @@
       <%= link_to genres_path,class:"btn btn-outline-primary mb5 btn-lg" do %>
         <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> ジャンル追加</span>
       <% end %>
-      
-      
+
+
       <!--商品一覧の表-->
       <div class="product-list">
         <table class="table table-bordered table-striped table-hover shadow mt-4">
+          <caption>※この表は横にスクロールできます(スマホ対応)</caption>
           <thead class="table-primary">
             <tr>
               <th>写真</th>
@@ -92,10 +93,11 @@
         </table>
         <%= paginate @items, theme: 'twitter-bootstrap-4', param_name: "item_pagenate" %>
       </div>
-      
-      
+
+
       <!--全合計部分-->
       <table class="table table-bordered table-striped shadow mt-4">
+        <caption>※売却合計と利益合計は取引完了時<b>のみ</b>反映されます。</caption>
         <thead class="table-primary">
           <tr style="font-size: 18px">
             <th>購入合計</th>

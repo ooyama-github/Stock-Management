@@ -7,7 +7,7 @@
   <div class="row py-4">
     <div class="product-list">
       <div class="col-12 col-lg-8">
-       <table class="table table-bordered table-striped table-hover shadow ">
+        <table class="table table-bordered table-striped table-hover shadow ">
         <%= form_with model: @genre, url: genres_path do |f| %>
          <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
          <td class="col-2"><%= f.text_field :name,:placeholder => "ジャンルを入力", required: true %></td>
@@ -17,42 +17,45 @@
            <% end %>
          </td>
         <% end %>
-       </table>
-       </div>
+        </table>
       </div>
-   </div>
+    </div>
+  </div>
 
-   <div class="row">
-     <div class="col-md-6">
-      <table class="table table-bordered table-striped shadow">
-       <thead>
-        <tr class="table-primary">
-         <th>ジャンル</th>
-         <th></th>
-         <th></th>
-        </tr>
-       </thead>
-       <tbody>
-       <% @genres.each do |genre| %>
-        <tr class="border-bottom">
-         <td><%= genre.name %></td>
-         <td>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-list">
+        <table class="table table-bordered table-striped shadow">
+          <thead>
+          <tr class="table-primary">
+          <th>ジャンル</th>
+          <th></th>
+          <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @genres.each do |genre| %>
+          <tr class="border-bottom">
+          <td><%= genre.name %></td>
+          <td>
           <%= link_to edit_genre_path(genre.id), class: "btn btn-success" do %>
             <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
           <% end %>
-         </td>
-         <td>
+          </td>
+          <td>
            <%= link_to genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" do %>
              <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
            <% end %>
-         </td>
-        </tr>
-       <% end %>
-       </tbody>
-      </table>
+          </td>
+          </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
       <%= paginate @genres, theme: 'twitter-bootstrap-4' %>
       <div class="text-center">
-          <%= link_to "在庫一覧へ", items_path, class: "btn btn-info rounded-pill" %>
+        <%= link_to "在庫一覧へ", items_path, class: "btn btn-info rounded-pill" %>
       </div>
-     </div>
-   </div>
+    </div>
+  </div>
+</div>
