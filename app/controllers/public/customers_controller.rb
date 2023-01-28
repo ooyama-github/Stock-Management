@@ -34,7 +34,7 @@ class Public::CustomersController < ApplicationController
 
   private
     def customer_params
-       params.require(:customer).permit(:email, :name)
+       params.require(:customer).permit(:email, :name, :profile_image)
     end
 
     #ゲストユーザーの記述

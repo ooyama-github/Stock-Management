@@ -1,9 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-10">
-      <h1>マイページ</h1>
-      <p class="font-weight-bold h4">登録情報
+    <h1>マイページ</h1>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-4 text-center p-4">
+      <!--プロフィール画像表示-->
+      <%= image_tag @customer.get_profile_image(200,200), class: 'rounded-circle img-fluid' %><!--過去の記述,class: "mr-3 rounded-circle d-block mx-auto"-->
+    </div>
+    <div class="col-12 col-lg-8">
       <div class="product-list">
+        <h3 class="text-center">登録情報</h3>
         <table class="table table-bordered shadow">
           <tbody>
             <tr></tr>
@@ -18,15 +24,16 @@
           </tbody>
         </table>
       </div>
-      <!--ゲストユーザーがプロフィール編集画面に行けないようにする記述-->
-      <% if @customer.name != "ゲストユーザー" %>
-       <div class="col text-right">
-         <%= link_to customers_edit_path, class:"btn btn-success" do %>
-           <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
-         <% end %>
-       </div>
-      <% end %>
     </div>
+
+      <!--ゲストユーザーがプロフィール編集画面に行けないようにする記述-->
+    <% if @customer.name != "ゲストユーザー" %>
+     <div class="col text-right">
+       <%= link_to customers_edit_path, class:"btn btn-success" do %>
+         <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+       <% end %>
+     </div>
+    <% end %>
   </div>
 </div>
 
