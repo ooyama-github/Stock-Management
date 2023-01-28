@@ -11,7 +11,7 @@
       <% end %>
     </div>
 
-    
+
     <div class="col-12 col-lg-8">
       <div class="product-list">
         <%= form_with model: @item,url: item_path(@item.id), method: :patch do |f| %>
@@ -39,7 +39,7 @@
               </tr>
               <tr>
                 <td>ジャンル</td>
-                <td><%= f.select :genre_id, options_from_collection_for_select( Genre.where(customer_id: current_customer.id), :id, :name) %></td>
+                <td><%= f.select :genre_id, options_from_collection_for_select( Genre.where(customer_id: current_customer.id), :id, :name,  @item.genre_id) %></td>
               </tr>
               <tr>
                 <td>販売ステータス</td>
