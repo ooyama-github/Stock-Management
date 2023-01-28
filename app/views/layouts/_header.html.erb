@@ -22,17 +22,17 @@
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
             <%= link_to customers_mypage_path, class:'dropdown-item text-dark' do %>
-              <i class="fas fa-home"></i>マイページ
+              <i class="fas fa-home"></i> マイページ
             <% end %>
           </li>
           <li>
            <%= link_to items_path, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-weight-hanging"></i>在庫一覧
+             <i class="fas fa-weight-hanging"></i> 在庫一覧
            <% end %>
           </li>
           <li>
            <%= link_to about_path, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-yin-yang"></i>about
+             <i class="fas fa-question"></i> about
            <% end %>
           </li>
           <li>
@@ -40,7 +40,7 @@
           </li>
           <li>
            <%= link_to destroy_customer_session_path, method: :delete, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-sign-out-alt"></i>ログアウト
+             <i class="fas fa-sign-out-alt"></i> ログアウト
            <% end %>
           </li>
         </ul>
@@ -51,10 +51,14 @@
     <% elsif admin_signed_in? %>
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <%= link_to "会員一覧",admin_customers_path, class: "nav-link" %>
+          <%= link_to admin_customers_path, class: "nav-link" do %>
+          <i class="fas fa-users"></i> 会員一覧
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
+          <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-sign-out-alt"></i> ログアウト
+          <% end %>
         </li>
       </ul>
 
@@ -71,27 +75,27 @@
         <ul class="dropdown-menu dropdown-menu-right">
          <li>
            <%= link_to customers_guest_sign_in_path, class: 'dropdown-item text-dark', method: :post do%>
-             <i class="fas fa-user-tie"></i>ゲストログイン(閲覧用)
+             <i class="fas fa-user-tie"></i> ゲストログイン(閲覧用)
            <% end %>
          </li>
          <li>
            <%= link_to new_customer_registration_path, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-user-plus"></i>新規登録
+             <i class="fas fa-user-plus"></i> 新規登録
            <% end %>
          </li>
          <li>
            <%= link_to customer_session_path, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-sign-in-alt"></i>ログイン
+             <i class="fas fa-sign-in-alt"></i> ログイン
            <% end %>
          </li>
          <li>
            <%= link_to new_admin_session_path, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-users-cog"></i>管理者ログイン
+             <i class="fas fa-users-cog"></i> 管理者ログイン
            <% end %>
          </li>
          <li>
            <%= link_to about_path, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-yin-yang"></i>about
+             <i class="fas fa-question"></i> about
            <% end %>
          </li>
         </ul>
