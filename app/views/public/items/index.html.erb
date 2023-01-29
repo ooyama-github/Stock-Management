@@ -10,6 +10,8 @@
       <h1 class="text-center">在庫一覧(全
           <% if @items.empty? %>
             0件)
+          <% elsif !params[:genre_id] && !params[:item_status] %>
+            <%= @myitems.count %>件)
           <% else %>
             <%= @items.count %>件)
           <% end %>
@@ -97,7 +99,7 @@
 
       <!--全合計部分-->
       <table class="table table-bordered table-striped shadow mt-4">
-        <caption>※売却合計と利益合計は取引完了時<b>のみ</b>反映されます。</caption>
+        <caption class="text-danger">※売却合計と利益合計は取引完了時<b>のみ</b>反映されます。</caption>
         <thead class="table-primary">
           <tr style="font-size: 18px">
             <th>購入合計</th>
