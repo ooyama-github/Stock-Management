@@ -11,7 +11,7 @@
       <!--ログイン時に在庫一覧ボタンを表示する-->
       <div class="btn-container">
         <% if customer_signed_in? %>
-          <%= link_to "在庫をチェック", items_path, class: "btn btn-info rounded-pill" %>
+          <%= link_to "こちらから在庫を追加してみましょう！", items_path, class: "btn btn-warning btn-lg rounded-pill" %>
         <% end %>
       </div>
     </div>
