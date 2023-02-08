@@ -89,13 +89,16 @@
            <% end %>
          </li>
          <li>
-           <%= link_to new_admin_session_path, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-users-cog"></i> 管理者ログイン
+           <%= link_to about_path, class:'dropdown-item text-dark' do %>
+             <i class="fas fa-question"></i> about
            <% end %>
          </li>
          <li>
-           <%= link_to about_path, class:'dropdown-item text-dark' do %>
-             <i class="fas fa-question"></i> about
+           <hr class="dropdown-divider">
+         </li>
+         <li>
+           <%= link_to new_admin_session_path, class:'dropdown-item text-dark' do %>
+             <i class="fas fa-users-cog"></i> 管理者ログイン
            <% end %>
          </li>
         </ul>
