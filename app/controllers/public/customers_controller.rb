@@ -4,6 +4,11 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = current_customer
+    @items = @customer.items.page(params[:page]).reverse_order
+    @today_item =  @items.created_today
+    @yesterday_item = @items.created_yesterday
+    @this_week_item = @items.created_this_week
+    @last_week_item = @items.created_last_week
   end
 
   def edit
