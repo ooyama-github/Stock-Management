@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <!--棒グラフ用のJavascript-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   </head>
 
   <!--ヘッダー呼び出し-->
@@ -19,7 +21,7 @@
     <%= render 'layouts/flash' %>
     <%= yield %>
   </body>
-  
+
   <footer>
     <div class="footer"></div>
   </footer>
