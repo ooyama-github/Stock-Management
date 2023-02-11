@@ -115,6 +115,49 @@
           </tr>
         </tbody>
       </table>
+      
+      
+      <!--今日、過去7日間の投稿表示-->
+      <table class="table table-bordered table-striped shadow mt-4">
+        <thead class="table-warning">
+          <tr>
+            <th>今日の投稿</th>
+            <th>昨日の投稿</th>
+            <th>前日比</th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr>
+             <td><%= @today_item.count %></td>
+             <td><%= @yesterday_item.count %></td>
+             <% if @yesterday_item.count == 0 %>
+               <td>前日の投稿はなし</td>
+             <% else %>
+             　<td><% @the_day_before =   @today_item.count / @yesterday_item.count.to_f  %>
+             　<%= (@the_day_before * 100).round %>%</td>
+             <% end %>
+            </tr>
+          </tbody>
+          <thead class="table-success">
+          <tr>
+           <th>今週の投稿</th>
+           <th>先週の投稿</th>
+           <th>比</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @this_week_item.count %></td>
+            <td><%= @last_week_item.count %></td>
+            <% if @last_week_item.count == 0 %>
+            <td>先週の投稿はなし</td>
+            <% else %>
+            　<td><% @the_week_before =   @this_week_item.count / @last_week_item.count.to_f  %>
+            　<%= (@the_week_before * 100).round %>%</td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -30,6 +30,12 @@ class Public::ItemsController < ApplicationController
     @sale_totals = @items.get_sales_total(current_customer).page(params[:page])
     # 別の記述方法（この方法でも取引完了の合計金額を表示できる↓）
     # @sale_totals = where(customer_id: current_customer.id, item_status: 5).page(params[:page])
+
+    # 今日、昨日、一週間投稿数を一覧表示させるための変数定義
+    @today_item =  @items.created_today
+    @yesterday_item = @items.created_yesterday
+    @this_week_item = @items.created_this_week
+    @last_week_item = @items.created_last_week
   end
 
   def create

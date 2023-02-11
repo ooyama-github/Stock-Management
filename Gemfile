@@ -76,3 +76,5 @@ gem 'devise-i18n'
 gem 'rails-i18n'
 
 gem 'bootstrap4-kaminari-views'
+
+gem 'chart-js-rails', '~> 0.1.4'
