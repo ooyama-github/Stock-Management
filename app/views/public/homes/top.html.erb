@@ -99,8 +99,10 @@
               <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-info rounded-pill" %>
             </div>
           <% else %>
+          <h2 class="text-center">在庫一覧に<br>行ってみましょう！</h2>
+          <p class="text-center">こちらのボタンを押してください↓</p>
           <div class="btn-container text-center">
-            <%= link_to items_path, class: "btn btn-outline-info rounded-pill" do %>
+            <%= link_to items_path, class: "btn btn-outline-success rounded-pill" do %>
               <i class="fas fa-weight-hanging"></i> 在庫一覧へ <i class="fas fa-weight-hanging"></i>
             <% end %>
           </div>
