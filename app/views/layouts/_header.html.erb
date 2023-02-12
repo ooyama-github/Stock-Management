@@ -31,6 +31,16 @@
            <% end %>
           </li>
           <li>
+           <%= link_to graphs_path, class:'dropdown-item text-dark' do %>
+             <i class="fas fa-chart-bar"></i> 投稿数推移表
+           <% end %>
+          </li>
+          <li>
+           <%= link_to "https://forms.gle/8mkJbCARm8pGMag76", class:'dropdown-item text-dark' do %>
+             <i class="fas fa-envelope"></i> お問い合わせ
+           <% end %>
+          </li>
+          <li>
            <%= link_to about_path, class:'dropdown-item text-dark' do %>
              <i class="fas fa-question"></i> about
            <% end %>
@@ -86,6 +96,11 @@
          <li>
            <%= link_to customer_session_path, class:'dropdown-item text-dark' do %>
              <i class="fas fa-sign-in-alt"></i> ログイン
+           <% end %>
+         </li>
+         <li>
+           <%= link_to "https://forms.gle/8mkJbCARm8pGMag76", class:'dropdown-item text-dark' do %>
+             <i class="fas fa-envelope"></i> お問い合わせ
            <% end %>
          </li>
          <li>
