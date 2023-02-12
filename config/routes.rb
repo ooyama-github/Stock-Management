@@ -22,10 +22,11 @@ Rails.application.routes.draw do
   end
 
 
-  #顧客のトップページ、アバウトページ、検索機能のルーティング
+  #顧客のトップページ、アバウトページ、検索機能、グラフ機能のルーティング
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
   get "/search" => "public/searches#search"
+  get "/graphs" => "public/graphs#index"
    # 顧客のマイページ、編集画面、退会画面
   scope module: :public do
     get 'customers/mypage' => 'customers#show', as: 'customers_mypage'
