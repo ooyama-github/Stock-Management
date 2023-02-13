@@ -172,3 +172,10 @@ color: #464646 !important;
 #sbtn4:hover{
 color:#888;
 }
+
+// トップページの線
+hr.style-one {
+    width: 100px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
+}
