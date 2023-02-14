@@ -1,12 +1,10 @@
 <div class="container">
-  <div class="row py-2">
-    <div class="col-md-10">
-      <h2>ジャンル一覧・追加  <i class="fas fa-hand-holding-medical"></i></h2>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center mt-4">ジャンル一覧・追加  <i class="fas fa-hand-holding-medical"></i></h1>
     </div>
   </div>
-  <div class="row py-4">
     <div class="product-list">
-      <div class="col-12 col-lg-8">
         <table class="table table-bordered table-striped table-hover shadow ">
         <%= form_with model: @genre, url: genres_path do |f| %>
          <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
@@ -19,11 +17,6 @@
         <% end %>
         </table>
       </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
       <div class="product-list">
         <table class="table table-bordered table-striped shadow">
           <thead>
