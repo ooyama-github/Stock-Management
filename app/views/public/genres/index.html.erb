@@ -11,15 +11,16 @@
     <div class="product-list">
       <div class="col-12 col-lg-8">
         <table class="table table-bordered table-striped table-hover shadow ">
-        <%= form_with model: @genre, url: genres_path do |f| %>
-         <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
-         <td class="col-2"><%= f.text_field :name,:placeholder => "ジャンルを入力", required: true %></td>
-         <td class="col-4">
-           <%= button_tag type: "submit",  class: "btn btn-outline-success mb5 btn-lg" do %>
-             <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> 新規登録</span>
-           <% end %>
-         </td>
-        <% end %>
+          <caption>こちらからジャンルを追加してください↑</caption>
+          <%= form_with model: @genre, url: genres_path do |f| %>
+            <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
+            <td class="col-2"><%= f.text_field :name,:placeholder => "ジャンルを入力", required: true %></td>
+            <td class="col-4">
+              <%= button_tag type: "submit",  class: "btn btn-outline-success mb5 btn-lg" do %>
+               <i class="fas fa-pen-fancy"></i> <span class="d-none d-md-inline"> 新規登録</span>
+              <% end %>
+            </td>
+          <% end %>
         </table>
       </div>
     </div>
@@ -56,7 +57,7 @@
           </tbody>
         </table>
         
-        <!--ジャンルが追加されていない場合の-->
+        <!--ジャンルが追加されていない場合の表示-->
         <% if @genres.empty? %>
           <div class='container rounded border py-5 my-5 text-center'>
             まだジャンルが追加されていません。<br>まずは追加してみましょう！
