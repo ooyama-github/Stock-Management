@@ -93,7 +93,15 @@
             <% end %>
           </tbody>
         </table>
+        <!--ページネーション-->
         <%= paginate @items, theme: 'twitter-bootstrap-4', param_name: "item_pagenate" %>
+        
+        <!--商品が追加されていない場合の-->
+        <% if @items.empty? %>
+          <div class='container rounded border py-5 my-5 text-center'>
+            まだ商品が追加されていません。<br>まずはジャンルを追加してみましょう！
+          </div>
+        <% end %>
       </div>
 
 
