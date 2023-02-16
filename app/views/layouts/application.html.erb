@@ -18,7 +18,9 @@
   <!--ヘッダー呼び出し-->
   <body>
     <%= render "layouts/header" %>
-    <%= render 'layouts/flash' %>
+    <div id="flash_message">
+      <%= render 'layouts/flash' %>
+    </div>
     <%= yield %>
   </body>
 
