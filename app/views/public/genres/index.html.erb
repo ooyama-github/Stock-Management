@@ -5,14 +5,14 @@
       <h2>ジャンル一覧・追加  <i class="fas fa-hand-holding-medical"></i></h2>
     </div>
   </div>
-  
+
   <!--ジャンル名追加フォーム-->
   <div class="row py-4">
     <div class="product-list">
       <div class="col-12 col-lg-8">
         <table class="table table-bordered table-striped table-hover shadow ">
           <caption>こちらからジャンルを追加してください↑</caption>
-          <%= form_with model: @genre, url: genres_path do |f| %>
+          <%= form_with model: @genre, url: genres_path, local: false do |f| %>
             <td class="col-2"><%= f.label :name, "ジャンル名"  %></td>
             <td class="col-2"><%= f.text_field :name,:placeholder => "ジャンルを入力", required: true %></td>
             <td class="col-4">
@@ -25,48 +25,15 @@
       </div>
     </div>
   </div>
-  
+
   <!--ジャンル名一覧、編集、削除-->
   <div class="row">
     <div class="col-md-6">
-      <div class="product-list">
-        <table class="table table-bordered table-striped shadow">
-          <thead>
-          <tr class="table-primary">
-          <th>ジャンル</th>
-          <th></th>
-          <th></th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @genres.each do |genre| %>
-            <tr class="border-bottom">
-            <td><%= genre.name %></td>
-            <td>
-            <%= link_to edit_genre_path(genre.id), class: "btn btn-success" do %>
-              <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
-            <% end %>
-            </td>
-            <td>
-             <%= link_to genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" do %>
-               <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
-             <% end %>
-            </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-        
-        <!--ジャンルが追加されていない場合の表示-->
-        <% if @genres.empty? %>
-          <div class='container rounded border py-5 my-5 text-center'>
-            まだジャンルが追加されていません。<br>まずは追加してみましょう！
-          </div>
-        <% end %>
+      <!--create.js.erbで指定したIDを追加-->
+      <div id="genre-table">
+        <!--部分テンプレートの記述、@genreを部分テンプレートで使えるようにする記述。つまり、部分テンプレートの中にあるgenresは@genresなんだよ-->
+        <%= render "genreform", genres: @genres %>
       </div>
-      
-      <!--ページネーション、在庫一覧ボタン-->
-      <%= paginate @genres, theme: 'twitter-bootstrap-4' %>
       <div class="text-center">
         <%= link_to items_path, class: "btn btn-info rounded-pill" do %>
           <i class="fas fa-weight-hanging"></i> 在庫一覧へ

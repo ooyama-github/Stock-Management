@@ -1,0 +1,40 @@
+<div class="product-list">
+  <table class="table table-bordered table-striped shadow">
+    <thead>
+      <tr class="table-primary">
+        <th>ジャンル</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% genres.each do |genre| %>
+    <tr class="border-bottom">
+      <td><%= genre.name %></td>
+      <td>
+      <%= link_to edit_genre_path(genre.id), class: "btn btn-success" do %>
+        <i class="fas fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+      <% end %>
+      </td>
+      <td>
+       <%= link_to genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" do %>
+                 <!--, local: false-->
+         <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
+       <% end %>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <!--ジャンルが追加されていない場合の表示-->
+  <% if genres.empty? %>
+    <div class='container rounded border py-5 my-5 text-center'>
+      まだジャンルが追加されていません。<br>まずは追加してみましょう！
+    </div>
+  <% end %>
+</div>
+
+<!--ページネーション、在庫一覧ボタン-->
+<%= paginate genres, theme: 'twitter-bootstrap-4' %>
+

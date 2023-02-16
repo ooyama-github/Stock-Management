@@ -10,7 +10,9 @@ class Public::GenresController < ApplicationController
     @genre = Genre.new(genre_params)
     @genre.customer_id = current_customer.id
     @genre.save!
-    redirect_to genres_path, notice: "#{@genre.name}を追加しました!"
+    @genres = Genre.where(customer_id: current_customer.id).page(params[:page]).per(7)
+    flash.now[:notice] = "#{@genre.name}を追加しました!"
+    # redirect_to genres_path, notice: "#{@genre.name}を追加しました!"
   end
 
   def edit
@@ -30,6 +32,7 @@ class Public::GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @genre.destroy
     redirect_to genres_path, alert: "#{@genre.name}を削除しました!"
+    # , local: false
   end
 
 

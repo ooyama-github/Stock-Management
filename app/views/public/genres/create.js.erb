@@ -1,0 +1,4 @@
+<!--ID指定-->
+$("#genre-table").html("<%= j(render 'public/genres/genreform', { genres: @genres }) %>")
+$("#genre_name").val("");
+$("#flash_message").html("<%= j(render 'layouts/flash') %>")
