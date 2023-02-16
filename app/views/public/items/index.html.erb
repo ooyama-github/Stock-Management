@@ -20,7 +20,7 @@
 
       <!--購入ステータス検索-->
       <div class="dropdown text-right">
-        <%= link_to  '', class:'btn btn-info dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': true, 'aria-expanded': false do%>
+        <%= link_to  '', class:'btn btn-info dropdown-toggle', 'data-toggle': :dropdown, role: :button, 'aria-haspopup': true, 'aria-expanded': false do%>
           <i class="fas fa-search"></i> 販売ステータス検索
         <% end %>
         <div class="dropdown-menu">
@@ -99,7 +99,7 @@
         <!--商品が追加されていない場合の-->
         <% if @items.empty? %>
           <div class='container rounded border py-5 my-5 text-center'>
-            まだ商品が追加されていません。<br>まずはジャンルを追加してみましょう！
+            まだ商品が追加されていません。<br>商品を追加してみましょう！
           </div>
         <% end %>
       </div>
