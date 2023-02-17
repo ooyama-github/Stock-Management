@@ -31,9 +31,10 @@
     <div class="col-md-6">
       <!--create.js.erbで指定したIDを追加-->
       <div id="genre-table">
-        <!--部分テンプレートの記述、@genreを部分テンプレートで使えるようにする記述。つまり、部分テンプレートの中にあるgenresは@genresなんだよ-->
+        <!--@genreを部分テンプレートで使えるようにする記述。つまり、部分テンプレートの中にあるgenresは@genresなんだよ-->
         <%= render "genreform", genres: @genres %>
       </div>
+      <!--在庫一覧に行くボタン-->
       <div class="text-center">
         <%= link_to items_path, class: "btn btn-info rounded-pill" do %>
           <i class="fas fa-weight-hanging"></i> 在庫一覧へ
