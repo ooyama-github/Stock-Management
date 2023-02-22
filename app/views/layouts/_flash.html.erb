@@ -1,10 +1,10 @@
 <!--フラッシュメッセージ-->
 <% if flash[:notice] %>
   <% flash.each do |message_type, message| %>
-  　　<div class="alert alert-success" style="margin-top: -33px;"><%= message %><button type="button" class="close" data-dismiss="alert">&times;</button></div>
+    <div class="alert alert-success"><%= message %><button type="button" class="close" data-dismiss="alert">&times;</button></div>
   <% end %>
   <% elsif flash[:alert] %>
     <% flash.each do |message_type, message| %>
-    <div class="alert alert-danger" style="margin-top: -33px;"><%= message %><button type="button" class="close" data-dismiss="alert">&times;</button></div>
+    <div class="alert alert-danger"><%= message %><button type="button" class="close" data-dismiss="alert">&times;</button></div>
   <% end %>
 <% end %>
