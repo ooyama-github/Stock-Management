@@ -1,0 +1,8 @@
+<!--Flashメッセージを出す-->
+$("#flash_message").fadeIn(500);
+
+$("#genre-table").html("<%= j(render 'public/genres/genreform', { genres: @genres }) %>")
+$("#flash_message").html("<%= j(render 'layouts/flash') %>")
+
+<!-- Flashメッセージを自動的に消す -->
+$("#flash_message").fadeOut(3000);
