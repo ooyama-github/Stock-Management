@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_customer!
   before_action :ensure_guest_customer, only: [:edit]
 
   def show
@@ -36,7 +37,14 @@ class Public::CustomersController < ApplicationController
     def customer_params
        params.require(:customer).permit(:email, :name, :profile_image)
     end
-
+    
+    def ensure_customer
+      @customer = Customer.find(params[:id])
+      unless @customer_id == current_customer.id
+        redirect_to customers_mypage_path
+      end
+    end
+    
     #ゲストユーザーの記述
     def ensure_guest_customer
       @customer = current_customer
